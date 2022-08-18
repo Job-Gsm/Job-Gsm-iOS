@@ -40,9 +40,19 @@ class LoginViewController: UIViewController {
         $0.backgroundColor = .button
         $0.layer.cornerRadius = 10
     }
+    lazy var signInButton = UIButton().then{
+        let text = NSAttributedString(string: "로그인")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 20)
+        $0.setTitleColor(UIColor.button, for: .normal)
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 10
+        $0.layer.borderColor = UIColor.button?.cgColor
+        $0.layer.borderWidth = 1
+    }
     
     private func addView() {
-        [backgroundLogo,Vector1,Logo,signUpButton].forEach {
+        [backgroundLogo,Vector1,Logo,signUpButton,signInButton].forEach {
             view.addSubview($0)
         }
     }
@@ -63,6 +73,12 @@ class LoginViewController: UIViewController {
         signUpButton.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.top.equalTo(view.snp.top).offset(247)
+            $0.size.equalTo(bounds.height * 0.05)
+            $0.trailing.equalToSuperview().offset(-89)
+        }
+        signInButton.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(signUpButton.snp.bottom).offset(19)
             $0.size.equalTo(bounds.height * 0.05)
             $0.trailing.equalToSuperview().offset(-89)
         }
