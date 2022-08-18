@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7743A3DC28AE0DE70089B473 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743A3DB28AE0DE70089B473 /* LoginViewController.swift */; };
+		7743A3DF28AE0E130089B473 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7743A3DE28AE0E130089B473 /* SnapKit */; };
+		7743A3E228AE0E260089B473 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7743A3E128AE0E260089B473 /* Then */; };
+		7743A3E428AE0ED00089B473 /* backgroundLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3E328AE0ED00089B473 /* backgroundLogo.png */; };
+		7743A3E628AE10A50089B473 /* Vector1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3E528AE10A50089B473 /* Vector1.png */; };
+		7743A3E828AE11680089B473 /* Job-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3E728AE11680089B473 /* Job-Logo.png */; };
 		779FD8B3289BA39C0093B90F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B2289BA39C0093B90F /* AppDelegate.swift */; };
 		779FD8B5289BA39C0093B90F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B4289BA39C0093B90F /* SceneDelegate.swift */; };
 		779FD8B7289BA39C0093B90F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B6289BA39C0093B90F /* ViewController.swift */; };
@@ -15,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7743A3DB28AE0DE70089B473 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7743A3E328AE0ED00089B473 /* backgroundLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundLogo.png; sourceTree = "<group>"; };
+		7743A3E528AE10A50089B473 /* Vector1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vector1.png; sourceTree = "<group>"; };
+		7743A3E728AE11680089B473 /* Job-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Job-Logo.png"; sourceTree = "<group>"; };
 		779FD8AF289BA39C0093B90F /* Job-GSM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Job-GSM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		779FD8B2289BA39C0093B90F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		779FD8B4289BA39C0093B90F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7743A3DF28AE0E130089B473 /* SnapKit in Frameworks */,
+				7743A3E228AE0E260089B473 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,9 +69,13 @@
 				779FD8B2289BA39C0093B90F /* AppDelegate.swift */,
 				779FD8B4289BA39C0093B90F /* SceneDelegate.swift */,
 				779FD8B6289BA39C0093B90F /* ViewController.swift */,
+				7743A3DB28AE0DE70089B473 /* LoginViewController.swift */,
 				779FD8BB289BA39E0093B90F /* Assets.xcassets */,
 				779FD8BD289BA39E0093B90F /* LaunchScreen.storyboard */,
 				779FD8C0289BA39E0093B90F /* Info.plist */,
+				7743A3E328AE0ED00089B473 /* backgroundLogo.png */,
+				7743A3E528AE10A50089B473 /* Vector1.png */,
+				7743A3E728AE11680089B473 /* Job-Logo.png */,
 			);
 			path = "Job-GSM";
 			sourceTree = "<group>";
@@ -80,6 +96,10 @@
 			dependencies = (
 			);
 			name = "Job-GSM";
+			packageProductDependencies = (
+				7743A3DE28AE0E130089B473 /* SnapKit */,
+				7743A3E128AE0E260089B473 /* Then */,
+			);
 			productName = "Job-GSM";
 			productReference = 779FD8AF289BA39C0093B90F /* Job-GSM.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +128,10 @@
 				Base,
 			);
 			mainGroup = 779FD8A6289BA39C0093B90F;
+			packageReferences = (
+				7743A3DD28AE0E130089B473 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				7743A3E028AE0E260089B473 /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = 779FD8B0289BA39C0093B90F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -122,7 +146,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7743A3E428AE0ED00089B473 /* backgroundLogo.png in Resources */,
 				779FD8BF289BA39E0093B90F /* LaunchScreen.storyboard in Resources */,
+				7743A3E828AE11680089B473 /* Job-Logo.png in Resources */,
+				7743A3E628AE10A50089B473 /* Vector1.png in Resources */,
 				779FD8BC289BA39E0093B90F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7743A3DC28AE0DE70089B473 /* LoginViewController.swift in Sources */,
 				779FD8B7289BA39C0093B90F /* ViewController.swift in Sources */,
 				779FD8B3289BA39C0093B90F /* AppDelegate.swift in Sources */,
 				779FD8B5289BA39C0093B90F /* SceneDelegate.swift in Sources */,
@@ -279,7 +307,6 @@
 				INFOPLIST_FILE = "Job-GSM/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -306,7 +333,6 @@
 				INFOPLIST_FILE = "Job-GSM/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -344,6 +370,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7743A3DD28AE0E130089B473 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		7743A3E028AE0E260089B473 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7743A3DE28AE0E130089B473 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7743A3DD28AE0E130089B473 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		7743A3E128AE0E260089B473 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7743A3E028AE0E260089B473 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 779FD8A7289BA39C0093B90F /* Project object */;
 }
