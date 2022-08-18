@@ -17,3 +17,7 @@ class ViewController: UIViewController {
 
 }
 
+extension UIColor {
+    class var button: UIColor? {return UIColor(named: "button")}    
+}
+

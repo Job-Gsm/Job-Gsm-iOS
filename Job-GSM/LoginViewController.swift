@@ -10,6 +10,8 @@ import SnapKit
 import Then
 
 class LoginViewController: UIViewController {
+    private let bounds = UIScreen.main.bounds
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +32,17 @@ class LoginViewController: UIViewController {
         $0.image = UIImage(named: "Job-Logo.png")
     }
     
+    lazy var signUpButton = UIButton().then{
+        let text = NSAttributedString(string: "가입")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 20)
+        $0.setTitleColor(UIColor.white, for: .normal)
+        $0.backgroundColor = .button
+        $0.layer.cornerRadius = 10
+    }
+    
     private func addView() {
-        [backgroundLogo,Vector1,Logo].forEach {
+        [backgroundLogo,Vector1,Logo,signUpButton].forEach {
             view.addSubview($0)
         }
     }
@@ -48,6 +59,12 @@ class LoginViewController: UIViewController {
         Logo.snp.makeConstraints {
             $0.top.equalTo(view.snp.top).offset(135)
             $0.centerX.equalToSuperview()
+        }
+        signUpButton.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(view.snp.top).offset(247)
+            $0.size.equalTo(bounds.height * 0.05)
+            $0.trailing.equalToSuperview().offset(-89)
         }
     }
     
