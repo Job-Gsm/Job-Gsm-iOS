@@ -26,8 +26,12 @@ class LoginViewController: UIViewController {
         $0.image = UIImage(named: "Vector1.png")
     }
     
+    let Logo = UIImageView().then {
+        $0.image = UIImage(named: "Job-Logo.png")
+    }
+    
     private func addView() {
-        [backgroundLogo,Vector1].forEach {
+        [backgroundLogo,Vector1,Logo].forEach {
             view.addSubview($0)
         }
     }
@@ -39,6 +43,10 @@ class LoginViewController: UIViewController {
         }
         Vector1.snp.makeConstraints{
             $0.top.equalTo(backgroundLogo.snp.bottom).offset(-130)
+            $0.centerX.equalToSuperview()
+        }
+        Logo.snp.makeConstraints {
+            $0.top.equalTo(view.snp.top).offset(135)
             $0.centerX.equalToSuperview()
         }
     }
