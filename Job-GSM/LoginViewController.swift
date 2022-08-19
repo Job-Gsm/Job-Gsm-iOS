@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .button
         $0.layer.cornerRadius = 10
+        $0.addTarget(self, action: #selector(signUpAction), for: .touchUpInside)
     }
     lazy var signInButton = UIButton().then{
         let text = NSAttributedString(string: "로그인")
@@ -49,6 +50,15 @@ class LoginViewController: UIViewController {
         $0.layer.cornerRadius = 10
         $0.layer.borderColor = UIColor.button?.cgColor
         $0.layer.borderWidth = 1
+        $0.addTarget(self, action: #selector(signInAction), for: .touchUpInside)
+    }
+    @objc func signInAction() {
+        let vc = SignInViewController()
+        self.navigationController?.setViewControllers([vc], animated: true)
+    }
+    @objc func signUpAction() {
+        let vc = SignUpViewController()
+        self.navigationController?.setViewControllers([vc], animated: true)
     }
     
     private func addView() {
