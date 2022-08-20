@@ -45,8 +45,31 @@ class SignUpViewController: UIViewController {
         $0.image = UIImage(named: "emailIcon.png")
     }
     
+    lazy var pwTextField = UITextField().then{
+        $0.placeholder = "password"
+//        $0.addTarget(self, action: #selector(), for: .editingChanged)
+    }
+    let pwUnderLine = UIView().then {
+        $0.backgroundColor = .black
+    }
+    let pwIcon = UIImageView().then {
+        $0.image = UIImage(named: "pwIcon.png")
+    }
+    
+    lazy var pwcheckTextField = UITextField().then{
+        $0.placeholder = "password check"
+//        $0.addTarget(self, action: #selector(), for: .editingChanged)
+    }
+    let pwcheckUnderLine = UIView().then {
+        $0.backgroundColor = .black
+    }
+    let pwcheckIcon = UIImageView().then {
+        $0.image = UIImage(named: "pwIcon.png")
+    }
+    
     private func addView() {
-        [vector2,background,emailUnderLine,emailTextField,emailIcon,textLogo].forEach {
+        [vector2,background,emailUnderLine,emailTextField,emailIcon,textLogo
+        ,pwTextField,pwUnderLine,pwIcon,pwcheckUnderLine,pwcheckIcon,pwcheckTextField].forEach {
             view.addSubview($0)
         }
     }
@@ -79,6 +102,36 @@ class SignUpViewController: UIViewController {
         }
         emailIcon.snp.makeConstraints{
             $0.top.equalTo(view.snp.top).offset(272)
+            $0.leading.equalToSuperview().offset(78)
+        }
+        pwTextField.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(emailUnderLine.snp.top).offset(21)
+            $0.leading.equalToSuperview().offset(110)
+        }
+        pwUnderLine.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(emailUnderLine.snp.top).offset(50)
+            $0.leading.equalToSuperview().offset(76)
+            $0.height.equalTo(1)
+        }
+        pwIcon.snp.makeConstraints{
+            $0.top.equalTo(emailUnderLine.snp.top).offset(22)
+            $0.leading.equalToSuperview().offset(78)
+        }
+        pwcheckTextField.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(pwUnderLine.snp.top).offset(18)
+            $0.leading.equalToSuperview().offset(110)
+        }
+        pwcheckUnderLine.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(pwUnderLine.snp.top).offset(50)
+            $0.leading.equalToSuperview().offset(76)
+            $0.height.equalTo(1)
+        }
+        pwcheckIcon.snp.makeConstraints{
+            $0.top.equalTo(pwUnderLine.snp.top).offset(20)
             $0.leading.equalToSuperview().offset(78)
         }
     }
