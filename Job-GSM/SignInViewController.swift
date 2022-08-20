@@ -6,24 +6,32 @@
 //
 
 import UIKit
+import SnapKit
+import Then
 
 class SignInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
+        addView()
+        setLayout()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    let Vector2 = UIImageView().then {
+        $0.image = UIImage(named: "Vector2.png")
     }
-    */
-
+    
+    private func addView() {
+        [Vector2].forEach {
+            view.addSubview($0)
+        }
+    }
+    
+    private func setLayout() {
+        Vector2.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(view.snp.bottom).offset(0)
+        }
+    }
 }
