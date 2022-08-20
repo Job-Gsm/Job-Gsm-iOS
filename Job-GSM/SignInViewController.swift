@@ -46,8 +46,20 @@ class SignInViewController: UIViewController {
         $0.image = UIImage(named: "idIcon.png")
     }
     
+    lazy var pwTextField = UITextField().then{
+        $0.placeholder = "password"
+//        $0.addTarget(self, action: #selector(), for: .editingChanged)
+    }
+    let pwUnderLine = UIView().then {
+        $0.backgroundColor = .black
+    }
+    let pwIcon = UIImageView().then {
+        $0.image = UIImage(named: "pwIcon.png")
+    }
+    
     private func addView() {
-        [Vector2,background,textLogo,idTextField,idUnderLine,idIcon].forEach {
+        [Vector2,background,textLogo,idTextField,idUnderLine,idIcon,
+         pwUnderLine,pwTextField,pwIcon].forEach {
             view.addSubview($0)
         }
     }
@@ -80,6 +92,21 @@ class SignInViewController: UIViewController {
         }
         idIcon.snp.makeConstraints{
             $0.top.equalTo(view.snp.top).offset(334)
+            $0.leading.equalToSuperview().offset(69)
+        }
+        pwTextField.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(idUnderLine.snp.top).offset(53)
+            $0.leading.equalToSuperview().offset(99)
+        }
+        pwUnderLine.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(idUnderLine.snp.top).offset(85)
+            $0.leading.equalToSuperview().offset(70)
+            $0.height.equalTo(1)
+        }
+        pwIcon.snp.makeConstraints{
+            $0.top.equalTo(idUnderLine.snp.top).offset(54)
             $0.leading.equalToSuperview().offset(69)
         }
     }
