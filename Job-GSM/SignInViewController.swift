@@ -34,6 +34,11 @@ class SignInViewController: UIViewController {
         $0.textColor = .black
         $0.font = UIFont(name: "Kreon-Regular", size: 40)
     }
+    let orText = UILabel().then {
+        $0.text = "or"
+        $0.textColor = .black
+        $0.font = UIFont(name: "Kreon-Regular", size: 20)
+    }
     
     lazy var idTextField = UITextField().then{
         $0.placeholder = "ID"
@@ -74,9 +79,18 @@ class SignInViewController: UIViewController {
         $0.backgroundColor = .white
     }
     
+    lazy var signUpButton = UIButton().then {
+        let text = NSAttributedString(string: "가입")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 20)
+        $0.setTitleColor(UIColor.text, for: .normal)
+        $0.backgroundColor = .white
+    }
+    
     private func addView() {
         [Vector2,background,textLogo,idTextField,idUnderLine,idIcon,
-         pwUnderLine,pwTextField,pwIcon,signInButton,forgotPwButton].forEach {
+         pwUnderLine,pwTextField,pwIcon,signInButton,forgotPwButton,orText
+        ,signUpButton].forEach {
             view.addSubview($0)
         }
     }
@@ -135,6 +149,14 @@ class SignInViewController: UIViewController {
         forgotPwButton.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.top.equalTo(pwUnderLine.snp.top).offset(29)
+        }
+        orText.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(signInButton.snp.bottom).offset(14)
+        }
+        signUpButton.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(orText.snp.bottom).offset(9)
         }
     }
 }
