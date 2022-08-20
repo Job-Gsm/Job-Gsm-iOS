@@ -77,6 +77,7 @@ class SignInViewController: UIViewController {
         $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 15)
         $0.setTitleColor(UIColor.text, for: .normal)
         $0.backgroundColor = .white
+        $0.addTarget(self, action: #selector(forgotPwAction), for: .touchUpInside)
     }
     
     lazy var signUpButton = UIButton().then {
@@ -85,6 +86,11 @@ class SignInViewController: UIViewController {
         $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 20)
         $0.setTitleColor(UIColor.text, for: .normal)
         $0.backgroundColor = .white
+    }
+    @objc func forgotPwAction() {
+        let fvc = ForgotPwViewController()
+        fvc.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(fvc, animated: true)
     }
     
     private func addView() {

@@ -24,6 +24,7 @@
 		7743A3FA28B0AEDA0089B473 /* idIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3F928B0AEDA0089B473 /* idIcon.png */; };
 		7743A3FC28B0AF8B0089B473 /* pwIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3FB28B0AF8B0089B473 /* pwIcon.png */; };
 		7743A3FE28B0C0D60089B473 /* emailIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3FD28B0C0D60089B473 /* emailIcon.png */; };
+		7743A40028B0C6720089B473 /* ForgotPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743A3FF28B0C6720089B473 /* ForgotPwViewController.swift */; };
 		779FD8B3289BA39C0093B90F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B2289BA39C0093B90F /* AppDelegate.swift */; };
 		779FD8B5289BA39C0093B90F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B4289BA39C0093B90F /* SceneDelegate.swift */; };
 		779FD8B7289BA39C0093B90F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B6289BA39C0093B90F /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 		7743A3F928B0AEDA0089B473 /* idIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idIcon.png; sourceTree = "<group>"; };
 		7743A3FB28B0AF8B0089B473 /* pwIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pwIcon.png; sourceTree = "<group>"; };
 		7743A3FD28B0C0D60089B473 /* emailIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emailIcon.png; sourceTree = "<group>"; };
+		7743A3FF28B0C6720089B473 /* ForgotPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPwViewController.swift; sourceTree = "<group>"; };
 		779FD8AF289BA39C0093B90F /* Job-GSM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Job-GSM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		779FD8B2289BA39C0093B90F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		779FD8B4289BA39C0093B90F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				7743A3DB28AE0DE70089B473 /* LoginViewController.swift */,
 				7743A3F328AF83450089B473 /* SignInViewController.swift */,
 				7743A3F528AF83510089B473 /* SignUpViewController.swift */,
+				7743A3FF28B0C6720089B473 /* ForgotPwViewController.swift */,
 				779FD8BB289BA39E0093B90F /* Assets.xcassets */,
 				779FD8BD289BA39E0093B90F /* LaunchScreen.storyboard */,
 				779FD8C0289BA39E0093B90F /* Info.plist */,
@@ -206,6 +209,7 @@
 				7743A3F628AF83510089B473 /* SignUpViewController.swift in Sources */,
 				7743A3DC28AE0DE70089B473 /* LoginViewController.swift in Sources */,
 				779FD8B7289BA39C0093B90F /* ViewController.swift in Sources */,
+				7743A40028B0C6720089B473 /* ForgotPwViewController.swift in Sources */,
 				779FD8B3289BA39C0093B90F /* AppDelegate.swift in Sources */,
 				7743A3F428AF83450089B473 /* SignInViewController.swift in Sources */,
 				779FD8B5289BA39C0093B90F /* SceneDelegate.swift in Sources */,

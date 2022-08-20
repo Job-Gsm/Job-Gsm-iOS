@@ -79,7 +79,7 @@ class SignUpViewController: UIViewController {
     }
     
     lazy var signUpButton = UIButton().then {
-        let text = NSAttributedString(string: "Join membership")
+        let text = NSAttributedString(string: "가입")
         $0.setAttributedTitle(text, for: .normal)
         $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 20)
         $0.setTitleColor(UIColor.white, for: .normal)

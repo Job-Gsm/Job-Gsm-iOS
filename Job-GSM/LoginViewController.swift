@@ -53,12 +53,14 @@ class LoginViewController: UIViewController {
         $0.addTarget(self, action: #selector(signInAction), for: .touchUpInside)
     }
     @objc func signInAction() {
-        let vc = SignInViewController()
-        self.navigationController?.setViewControllers([vc], animated: true)
+        let sivc = SignInViewController()
+        sivc.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(sivc, animated: true)
     }
     @objc func signUpAction() {
-        let vc = SignUpViewController()
-        self.navigationController?.setViewControllers([vc], animated: true)
+        let suvc = SignUpViewController()
+        suvc.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(suvc, animated: true)
     }
     
     private func addView() {
