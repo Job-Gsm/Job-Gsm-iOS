@@ -22,8 +22,15 @@ class SignInViewController: UIViewController {
         $0.image = UIImage(named: "Vector2.png")
     }
     
+    let background = UIView().then{
+        $0.backgroundColor = .white
+        $0.layer.borderColor = UIColor.black.cgColor
+        $0.layer.borderWidth = 1
+        $0.layer.cornerRadius = 10
+    }
+    
     private func addView() {
-        [Vector2].forEach {
+        [Vector2,background].forEach {
             view.addSubview($0)
         }
     }
@@ -32,6 +39,12 @@ class SignInViewController: UIViewController {
         Vector2.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(view.snp.bottom).offset(0)
+        }
+        background.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
+            $0.height.equalTo(574)
+            $0.width.equalTo(318)
         }
     }
 }
