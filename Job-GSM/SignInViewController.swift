@@ -57,9 +57,26 @@ class SignInViewController: UIViewController {
         $0.image = UIImage(named: "pwIcon.png")
     }
     
+    lazy var signInButton = UIButton().then {
+        let text = NSAttributedString(string: "로그인")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 20)
+        $0.setTitleColor(UIColor.white, for: .normal)
+        $0.backgroundColor = .button
+        $0.layer.cornerRadius = 15
+    }
+    
+    lazy var forgotPwButton = UIButton().then {
+        let text = NSAttributedString(string: "비밀번호를 잊으셨나요?")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 15)
+        $0.setTitleColor(UIColor.text, for: .normal)
+        $0.backgroundColor = .white
+    }
+    
     private func addView() {
         [Vector2,background,textLogo,idTextField,idUnderLine,idIcon,
-         pwUnderLine,pwTextField,pwIcon].forEach {
+         pwUnderLine,pwTextField,pwIcon,signInButton,forgotPwButton].forEach {
             view.addSubview($0)
         }
     }
@@ -108,6 +125,16 @@ class SignInViewController: UIViewController {
         pwIcon.snp.makeConstraints{
             $0.top.equalTo(idUnderLine.snp.top).offset(54)
             $0.leading.equalToSuperview().offset(69)
+        }
+        signInButton.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(pwUnderLine.snp.top).offset(81)
+            $0.height.equalTo(50)
+            $0.width.equalTo(200)
+        }
+        forgotPwButton.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(pwUnderLine.snp.top).offset(29)
         }
     }
 }
