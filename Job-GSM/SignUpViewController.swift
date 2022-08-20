@@ -67,9 +67,30 @@ class SignUpViewController: UIViewController {
         $0.image = UIImage(named: "pwIcon.png")
     }
     
+    lazy var nicknameTextField = UITextField().then{
+        $0.placeholder = "nick name"
+//        $0.addTarget(self, action: #selector(), for: .editingChanged)
+    }
+    let nicknameUnderLine = UIView().then {
+        $0.backgroundColor = .black
+    }
+    let nicknameIcon = UIImageView().then {
+        $0.image = UIImage(named: "idIcon.png")
+    }
+    
+    lazy var signUpButton = UIButton().then {
+        let text = NSAttributedString(string: "Join membership")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 20)
+        $0.setTitleColor(UIColor.white, for: .normal)
+        $0.backgroundColor = .button
+        $0.layer.cornerRadius = 15
+    }
+    
     private func addView() {
         [vector2,background,emailUnderLine,emailTextField,emailIcon,textLogo
-        ,pwTextField,pwUnderLine,pwIcon,pwcheckUnderLine,pwcheckIcon,pwcheckTextField].forEach {
+        ,pwTextField,pwUnderLine,pwIcon,pwcheckUnderLine,pwcheckIcon,pwcheckTextField
+        ,nicknameUnderLine,nicknameIcon,nicknameTextField,signUpButton].forEach {
             view.addSubview($0)
         }
     }
@@ -133,6 +154,27 @@ class SignUpViewController: UIViewController {
         pwcheckIcon.snp.makeConstraints{
             $0.top.equalTo(pwUnderLine.snp.top).offset(20)
             $0.leading.equalToSuperview().offset(78)
+        }
+        nicknameTextField.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(pwcheckUnderLine.snp.top).offset(20)
+            $0.leading.equalToSuperview().offset(110)
+        }
+        nicknameUnderLine.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(pwcheckUnderLine.snp.top).offset(50)
+            $0.leading.equalToSuperview().offset(76)
+            $0.height.equalTo(1)
+        }
+        nicknameIcon.snp.makeConstraints{
+            $0.top.equalTo(pwcheckUnderLine.snp.top).offset(21)
+            $0.leading.equalToSuperview().offset(78)
+        }
+        signUpButton.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(nicknameUnderLine.snp.bottom).offset(80)
+            $0.height.equalTo(50)
+            $0.width.equalTo(200)
         }
     }
     
