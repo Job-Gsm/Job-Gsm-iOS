@@ -11,7 +11,6 @@
 		7743A3DF28AE0E130089B473 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7743A3DE28AE0E130089B473 /* SnapKit */; };
 		7743A3E228AE0E260089B473 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7743A3E128AE0E260089B473 /* Then */; };
 		7743A3E428AE0ED00089B473 /* backgroundLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3E328AE0ED00089B473 /* backgroundLogo.png */; };
-		7743A3E628AE10A50089B473 /* Vector1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3E528AE10A50089B473 /* Vector1.png */; };
 		7743A3E828AE11680089B473 /* Job-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3E728AE11680089B473 /* Job-Logo.png */; };
 		7743A3EE28AE17A70089B473 /* Kreon-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3E928AE17A70089B473 /* Kreon-Bold.ttf */; };
 		7743A3EF28AE17A70089B473 /* Kreon-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3EA28AE17A70089B473 /* Kreon-Light.ttf */; };
@@ -25,9 +24,10 @@
 		7743A3FC28B0AF8B0089B473 /* pwIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3FB28B0AF8B0089B473 /* pwIcon.png */; };
 		7743A3FE28B0C0D60089B473 /* emailIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3FD28B0C0D60089B473 /* emailIcon.png */; };
 		7743A40028B0C6720089B473 /* ForgotPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743A3FF28B0C6720089B473 /* ForgotPwViewController.swift */; };
+		7743A40228B273E20089B473 /* Vector1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743A40128B273E20089B473 /* Vector1.png */; };
 		779FD8B3289BA39C0093B90F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B2289BA39C0093B90F /* AppDelegate.swift */; };
 		779FD8B5289BA39C0093B90F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B4289BA39C0093B90F /* SceneDelegate.swift */; };
-		779FD8B7289BA39C0093B90F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B6289BA39C0093B90F /* ViewController.swift */; };
+		779FD8B7289BA39C0093B90F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B6289BA39C0093B90F /* MainViewController.swift */; };
 		779FD8BC289BA39E0093B90F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 779FD8BB289BA39E0093B90F /* Assets.xcassets */; };
 		779FD8BF289BA39E0093B90F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 779FD8BD289BA39E0093B90F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -35,7 +35,6 @@
 /* Begin PBXFileReference section */
 		7743A3DB28AE0DE70089B473 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7743A3E328AE0ED00089B473 /* backgroundLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundLogo.png; sourceTree = "<group>"; };
-		7743A3E528AE10A50089B473 /* Vector1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vector1.png; sourceTree = "<group>"; };
 		7743A3E728AE11680089B473 /* Job-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Job-Logo.png"; sourceTree = "<group>"; };
 		7743A3E928AE17A70089B473 /* Kreon-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kreon-Bold.ttf"; sourceTree = "<group>"; };
 		7743A3EA28AE17A70089B473 /* Kreon-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kreon-Light.ttf"; sourceTree = "<group>"; };
@@ -49,10 +48,11 @@
 		7743A3FB28B0AF8B0089B473 /* pwIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pwIcon.png; sourceTree = "<group>"; };
 		7743A3FD28B0C0D60089B473 /* emailIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emailIcon.png; sourceTree = "<group>"; };
 		7743A3FF28B0C6720089B473 /* ForgotPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPwViewController.swift; sourceTree = "<group>"; };
+		7743A40128B273E20089B473 /* Vector1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Vector1.png; path = ../../Vector1.png; sourceTree = "<group>"; };
 		779FD8AF289BA39C0093B90F /* Job-GSM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Job-GSM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		779FD8B2289BA39C0093B90F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		779FD8B4289BA39C0093B90F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		779FD8B6289BA39C0093B90F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		779FD8B6289BA39C0093B90F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		779FD8BB289BA39E0093B90F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		779FD8BE289BA39E0093B90F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		779FD8C0289BA39E0093B90F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 			children = (
 				779FD8B2289BA39C0093B90F /* AppDelegate.swift */,
 				779FD8B4289BA39C0093B90F /* SceneDelegate.swift */,
-				779FD8B6289BA39C0093B90F /* ViewController.swift */,
+				779FD8B6289BA39C0093B90F /* MainViewController.swift */,
 				7743A3DB28AE0DE70089B473 /* LoginViewController.swift */,
 				7743A3F328AF83450089B473 /* SignInViewController.swift */,
 				7743A3F528AF83510089B473 /* SignUpViewController.swift */,
@@ -105,7 +105,7 @@
 				7743A3F928B0AEDA0089B473 /* idIcon.png */,
 				7743A3E328AE0ED00089B473 /* backgroundLogo.png */,
 				7743A3F728B0A7F20089B473 /* Vector2.png */,
-				7743A3E528AE10A50089B473 /* Vector1.png */,
+				7743A40128B273E20089B473 /* Vector1.png */,
 				7743A3E728AE11680089B473 /* Job-Logo.png */,
 				7743A3E928AE17A70089B473 /* Kreon-Bold.ttf */,
 				7743A3EA28AE17A70089B473 /* Kreon-Light.ttf */,
@@ -186,6 +186,7 @@
 				7743A3F028AE17A70089B473 /* Kreon-Medium.ttf in Resources */,
 				7743A3F128AE17A70089B473 /* Kreon-SemiBold.ttf in Resources */,
 				7743A3FE28B0C0D60089B473 /* emailIcon.png in Resources */,
+				7743A40228B273E20089B473 /* Vector1.png in Resources */,
 				7743A3F828B0A7F20089B473 /* Vector2.png in Resources */,
 				7743A3FC28B0AF8B0089B473 /* pwIcon.png in Resources */,
 				7743A3F228AE17A70089B473 /* Kreon-Regular.ttf in Resources */,
@@ -193,7 +194,6 @@
 				7743A3EF28AE17A70089B473 /* Kreon-Light.ttf in Resources */,
 				7743A3E828AE11680089B473 /* Job-Logo.png in Resources */,
 				7743A3EE28AE17A70089B473 /* Kreon-Bold.ttf in Resources */,
-				7743A3E628AE10A50089B473 /* Vector1.png in Resources */,
 				779FD8BC289BA39E0093B90F /* Assets.xcassets in Resources */,
 				7743A3FA28B0AEDA0089B473 /* idIcon.png in Resources */,
 			);
@@ -208,7 +208,7 @@
 			files = (
 				7743A3F628AF83510089B473 /* SignUpViewController.swift in Sources */,
 				7743A3DC28AE0DE70089B473 /* LoginViewController.swift in Sources */,
-				779FD8B7289BA39C0093B90F /* ViewController.swift in Sources */,
+				779FD8B7289BA39C0093B90F /* MainViewController.swift in Sources */,
 				7743A40028B0C6720089B473 /* ForgotPwViewController.swift in Sources */,
 				779FD8B3289BA39C0093B90F /* AppDelegate.swift in Sources */,
 				7743A3F428AF83450089B473 /* SignInViewController.swift in Sources */,

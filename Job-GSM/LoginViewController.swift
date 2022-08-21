@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = .background
         addView()
         setLayout()
     }
@@ -71,20 +71,22 @@ class LoginViewController: UIViewController {
     
     private func setLayout() {
         backgroundLogo.snp.makeConstraints{
-            $0.top.equalTo(view.snp.top).offset(10)
+            $0.top.equalTo(view.snp.top).offset(70)
             $0.centerX.equalToSuperview()
         }
         Vector1.snp.makeConstraints{
-            $0.top.equalTo(backgroundLogo.snp.bottom).offset(-130)
+            $0.bottom.equalTo(view.snp.bottom).offset(0)
             $0.centerX.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
         }
         Logo.snp.makeConstraints {
-            $0.top.equalTo(view.snp.top).offset(135)
+            $0.top.equalTo(view.snp.top).offset(203)
             $0.centerX.equalToSuperview()
         }
         signUpButton.snp.makeConstraints{
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.snp.top).offset(247)
+            $0.top.equalTo(Logo.snp.bottom).offset(28)
             $0.size.equalTo(bounds.height * 0.05)
             $0.trailing.equalToSuperview().offset(-89)
         }

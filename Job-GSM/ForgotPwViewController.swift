@@ -21,7 +21,7 @@ class ForgotPwViewController: UIViewController {
     let vector2 = UIImageView().then {
         $0.image = UIImage(named: "Vector2.png")
     }
-    
+        
     let background = UIView().then{
         $0.backgroundColor = .white
         $0.layer.borderColor = UIColor.black.cgColor
