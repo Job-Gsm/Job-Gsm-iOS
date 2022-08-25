@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Then
+import DropDown
 
 class ForgotPwViewController: UIViewController {
 
@@ -16,7 +17,7 @@ class ForgotPwViewController: UIViewController {
         view.backgroundColor = .white
         addView()
         setLayout()
-    }
+    }   
 
     let vector2 = UIImageView().then {
         $0.image = UIImage(named: "Vector2.png")
