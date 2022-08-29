@@ -45,8 +45,17 @@ class ForgotPwViewController: UIViewController {
         $0.font = UIFont(name: "Kreon-Regular", size: 15)
     }
     
+    lazy var enterEmailField = UITextField().then{
+        $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
+        $0.placeholder = "email 주소를 입력해주세요"
+        $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
+        $0.font = UIFont(name: "Kreon-Regular", size: 15)
+        $0.addLeftPadding()
+        $0.layer.cornerRadius = 10
+    }
+    
     private func addView() {
-        [vector2,background,forgotMyPw,forgotMyPwText].forEach {
+        [vector2,background,forgotMyPw,forgotMyPwText,enterEmailField].forEach {
             view.addSubview($0)
         }
     }
@@ -63,12 +72,27 @@ class ForgotPwViewController: UIViewController {
             $0.width.equalTo(318)
         }
         forgotMyPw.snp.makeConstraints {
-            $0.centerX.equalToSuperview();
+            $0.centerX.equalToSuperview()
             $0.top.equalTo(view.snp.top).offset(259)
         }
         forgotMyPwText.snp.makeConstraints{
-            $0.centerX.equalToSuperview();
+            $0.centerX.equalToSuperview()
             $0.top.equalTo(forgotMyPw.snp.bottom).offset(14)
         }
+        enterEmailField.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(forgotMyPwText.snp.bottom).offset(61)
+            $0.height.equalTo(44)
+            $0.leading.equalToSuperview().offset(58)
+        }
     }
+}
+
+
+extension UITextField {
+  func addLeftPadding() {
+    let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.frame.height))
+    self.leftView = paddingView
+    self.leftViewMode = ViewMode.always
+  }
 }
