@@ -30,8 +30,23 @@ class ForgotPwViewController: UIViewController {
         $0.layer.cornerRadius = 10
     }
     
+    let forgotMyPw = UILabel().then{
+        $0.text = "비밀번호를 잊어버렸나요?"
+        $0.textColor = .black
+        $0.font = UIFont(name: "Kreon-Regular", size: 25)
+    }
+    
+    let forgotMyPwText = UILabel().then{
+        $0.numberOfLines = 2
+        $0.textAlignment = .center
+        $0.text = "입력하신 이메일 주소로 비밀번호를 \n 초기화하는 링크를 보내드리겠습니다."
+        $0.textColor = .black
+        $0.layer.opacity = 0.4
+        $0.font = UIFont(name: "Kreon-Regular", size: 15)
+    }
+    
     private func addView() {
-        [vector2,background].forEach {
+        [vector2,background,forgotMyPw,forgotMyPwText].forEach {
             view.addSubview($0)
         }
     }
@@ -46,6 +61,14 @@ class ForgotPwViewController: UIViewController {
             $0.centerY.equalToSuperview()
             $0.height.equalTo(404)
             $0.width.equalTo(318)
+        }
+        forgotMyPw.snp.makeConstraints {
+            $0.centerX.equalToSuperview();
+            $0.top.equalTo(view.snp.top).offset(259)
+        }
+        forgotMyPwText.snp.makeConstraints{
+            $0.centerX.equalToSuperview();
+            $0.top.equalTo(forgotMyPw.snp.bottom).offset(14)
         }
     }
 }
