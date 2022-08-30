@@ -51,11 +51,30 @@ class ForgotPwViewController: UIViewController {
         $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
         $0.font = UIFont(name: "Kreon-Regular", size: 15)
         $0.addLeftPadding()
-        $0.layer.cornerRadius = 10
+        $0.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        $0.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        $0.layer.shadowOpacity = 1.0
+        $0.layer.shadowRadius = 0.0
+        $0.layer.masksToBounds = false
+        $0.layer.cornerRadius = 10.0
+    }
+    
+    lazy var changeButton = UIButton().then{
+        let text = NSAttributedString(string: "변경하기")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 20)
+        $0.setTitleColor(UIColor.white, for: .normal)
+        $0.backgroundColor = .button
+        $0.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        $0.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        $0.layer.shadowOpacity = 1.0
+        $0.layer.shadowRadius = 0.0
+        $0.layer.masksToBounds = false
+        $0.layer.cornerRadius = 15.0
     }
     
     private func addView() {
-        [vector2,background,forgotMyPw,forgotMyPwText,enterEmailField].forEach {
+        [vector2,background,forgotMyPw,forgotMyPwText,enterEmailField,changeButton].forEach {
             view.addSubview($0)
         }
     }
@@ -85,6 +104,12 @@ class ForgotPwViewController: UIViewController {
             $0.height.equalTo(44)
             $0.leading.equalToSuperview().offset(58)
         }
+        changeButton.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(enterEmailField.snp.bottom).offset(73)
+            $0.height.equalTo(50)
+            $0.leading.equalToSuperview().offset(79)
+        }
     }
 }
 
@@ -96,3 +121,4 @@ extension UITextField {
     self.leftViewMode = ViewMode.always
   }
 }
+
