@@ -29,9 +29,8 @@ class SignUpViewController: UIViewController {
 
     let background = UIView().then{
         $0.backgroundColor = .white
-        $0.layer.borderColor = UIColor.black.cgColor
-        $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 10
+        $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 0, y: 0, blur: 4, spread: 0)
     }
     
     lazy var emailTextField = UITextField().then{
