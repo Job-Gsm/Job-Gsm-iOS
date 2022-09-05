@@ -92,7 +92,10 @@ class ForgotPwViewController: UIViewController {
         $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 14)
         $0.setTitleColor(UIColor.text, for: .normal)
         $0.backgroundColor = .white
-        //$0.addTarget(self, action: #selector(forgotPwAction), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(backLogin), for: .touchUpInside)
+    }
+    @objc func backLogin() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func addView() {
