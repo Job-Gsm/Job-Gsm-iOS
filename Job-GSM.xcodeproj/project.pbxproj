@@ -26,6 +26,7 @@
 		7743A40028B0C6720089B473 /* ForgotPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743A3FF28B0C6720089B473 /* ForgotPwViewController.swift */; };
 		7743A40228B273E20089B473 /* Vector1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743A40128B273E20089B473 /* Vector1.png */; };
 		7743A40628B27A330089B473 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 7743A40528B27A330089B473 /* DropDown */; };
+		77606FB428C4E10E00A53D91 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 77606FB328C4E10E00A53D91 /* Moya */; };
 		779FD8B3289BA39C0093B90F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B2289BA39C0093B90F /* AppDelegate.swift */; };
 		779FD8B5289BA39C0093B90F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B4289BA39C0093B90F /* SceneDelegate.swift */; };
 		779FD8B7289BA39C0093B90F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B6289BA39C0093B90F /* MainViewController.swift */; };
@@ -66,6 +67,7 @@
 			files = (
 				7743A3DF28AE0E130089B473 /* SnapKit in Frameworks */,
 				7743A40628B27A330089B473 /* DropDown in Frameworks */,
+				77606FB428C4E10E00A53D91 /* Moya in Frameworks */,
 				7743A3E228AE0E260089B473 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +140,7 @@
 				7743A3DE28AE0E130089B473 /* SnapKit */,
 				7743A3E128AE0E260089B473 /* Then */,
 				7743A40528B27A330089B473 /* DropDown */,
+				77606FB328C4E10E00A53D91 /* Moya */,
 			);
 			productName = "Job-GSM";
 			productReference = 779FD8AF289BA39C0093B90F /* Job-GSM.app */;
@@ -172,6 +175,7 @@
 				7743A3E028AE0E260089B473 /* XCRemoteSwiftPackageReference "Then" */,
 				7743A40328B27A110089B473 /* XCRemoteSwiftPackageReference "DropDown" */,
 				7743A40428B27A330089B473 /* XCRemoteSwiftPackageReference "DropDown" */,
+				77606FB228C4E10E00A53D91 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 779FD8B0289BA39C0093B90F /* Products */;
 			projectDirPath = "";
@@ -457,6 +461,14 @@
 				kind = branch;
 			};
 		};
+		77606FB228C4E10E00A53D91 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -474,6 +486,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7743A40428B27A330089B473 /* XCRemoteSwiftPackageReference "DropDown" */;
 			productName = DropDown;
+		};
+		77606FB328C4E10E00A53D91 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77606FB228C4E10E00A53D91 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
