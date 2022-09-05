@@ -41,12 +41,8 @@ class ForgotPwViewController: UIViewController {
         $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
         $0.font = UIFont(name: "Kreon-Regular", size: 15)
         $0.addLeftPadding()
-        $0.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        $0.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        $0.layer.shadowOpacity = 1.0
-        $0.layer.shadowRadius = 0.0
-        $0.layer.masksToBounds = false
-        $0.layer.cornerRadius = 10.0
+        $0.layer.cornerRadius = 10
+        $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 0, y: 2, blur: 0, spread: 0)
     }
     lazy var newPwField = UITextField().then{
         $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
@@ -54,12 +50,8 @@ class ForgotPwViewController: UIViewController {
         $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
         $0.font = UIFont(name: "Kreon-Regular", size: 15)
         $0.addLeftPadding()
-        $0.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        $0.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        $0.layer.shadowOpacity = 1.0
-        $0.layer.shadowRadius = 0.0
-        $0.layer.masksToBounds = false
-        $0.layer.cornerRadius = 10.0
+        $0.layer.cornerRadius = 10
+        $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 0, y: 2, blur: 0, spread: 0)
     }
     lazy var againPwField = UITextField().then{
         $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
@@ -67,12 +59,8 @@ class ForgotPwViewController: UIViewController {
         $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
         $0.font = UIFont(name: "Kreon-Regular", size: 15)
         $0.addLeftPadding()
-        $0.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        $0.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        $0.layer.shadowOpacity = 1.0
-        $0.layer.shadowRadius = 0.0
-        $0.layer.masksToBounds = false
-        $0.layer.cornerRadius = 10.0
+        $0.layer.cornerRadius = 10
+        $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 0, y: 2, blur: 0, spread: 0)
     }
     
     lazy var certificationButton = UIButton().then{
@@ -90,12 +78,8 @@ class ForgotPwViewController: UIViewController {
         $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 18)
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .button
-        $0.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        $0.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        $0.layer.shadowOpacity = 1.0
-        $0.layer.shadowRadius = 0.0
-        $0.layer.masksToBounds = false
-        $0.layer.cornerRadius = 15.0
+        $0.layer.cornerRadius = 10
+        $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 0, y: 2, blur: 0, spread: 0)
     }
     let pwText = UILabel().then{
         $0.text = "비밀번호가 기억나셨나요?"
