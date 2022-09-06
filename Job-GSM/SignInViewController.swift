@@ -8,8 +8,13 @@
 import UIKit
 import SnapKit
 import Then
+import Moya
 
 class SignInViewController: UIViewController {
+    
+    private let authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
+    var userData: SigninModel?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,6 +174,35 @@ class SignInViewController: UIViewController {
         signUpButton.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.top.equalTo(orText.snp.bottom).offset(9)
+        }
+    }
+}
+
+extension SignInViewController {
+    func signin() {
+        let param = SigninRequest.init(self.idTextField.text!, self.pwTextField.text!)
+        print(param)
+        authProvider.request(.signIn(param: param)) {response in
+            switch response {
+            case .success(let result):
+                do {
+                    self.userData = try result.map(SigninModel.self)
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+                let statusCode = result.statusCode
+                switch statusCode {
+                case 200..<300:
+                    print("success")
+                    //self.success()
+                default:
+                    print("failure")
+                    //self.faliure()
+                    
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
         }
     }
 }

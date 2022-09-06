@@ -29,9 +29,10 @@
 		77606FB428C4E10E00A53D91 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 77606FB328C4E10E00A53D91 /* Moya */; };
 		77606FB628C5F4FB00A53D91 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77606FB528C5F4FB00A53D91 /* Service.swift */; };
 		77606FBA28C76B8000A53D91 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77606FB928C76B8000A53D91 /* Model.swift */; };
+		77606FBC28C7901C00A53D91 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77606FBB28C7901C00A53D91 /* Request.swift */; };
+		77606FBE28C792D600A53D91 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77606FBD28C792D600A53D91 /* MainViewController.swift */; };
 		779FD8B3289BA39C0093B90F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B2289BA39C0093B90F /* AppDelegate.swift */; };
 		779FD8B5289BA39C0093B90F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B4289BA39C0093B90F /* SceneDelegate.swift */; };
-		779FD8B7289BA39C0093B90F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B6289BA39C0093B90F /* MainViewController.swift */; };
 		779FD8BC289BA39E0093B90F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 779FD8BB289BA39E0093B90F /* Assets.xcassets */; };
 		779FD8BF289BA39E0093B90F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 779FD8BD289BA39E0093B90F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -55,10 +56,11 @@
 		7743A40128B273E20089B473 /* Vector1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Vector1.png; path = ../../Vector1.png; sourceTree = "<group>"; };
 		77606FB528C5F4FB00A53D91 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		77606FB928C76B8000A53D91 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		77606FBB28C7901C00A53D91 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		77606FBD28C792D600A53D91 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		779FD8AF289BA39C0093B90F /* Job-GSM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Job-GSM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		779FD8B2289BA39C0093B90F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		779FD8B4289BA39C0093B90F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		779FD8B6289BA39C0093B90F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		779FD8BB289BA39E0093B90F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		779FD8BE289BA39E0093B90F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		779FD8C0289BA39E0093B90F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,13 +102,14 @@
 			children = (
 				779FD8B2289BA39C0093B90F /* AppDelegate.swift */,
 				779FD8B4289BA39C0093B90F /* SceneDelegate.swift */,
-				779FD8B6289BA39C0093B90F /* MainViewController.swift */,
+				77606FBD28C792D600A53D91 /* MainViewController.swift */,
 				7743A3DB28AE0DE70089B473 /* LoginViewController.swift */,
 				7743A3F328AF83450089B473 /* SignInViewController.swift */,
 				7743A3F528AF83510089B473 /* SignUpViewController.swift */,
 				7743A3FF28B0C6720089B473 /* ForgotPwViewController.swift */,
 				77606FB528C5F4FB00A53D91 /* Service.swift */,
 				77606FB928C76B8000A53D91 /* Model.swift */,
+				77606FBB28C7901C00A53D91 /* Request.swift */,
 				779FD8BB289BA39E0093B90F /* Assets.xcassets */,
 				779FD8BD289BA39E0093B90F /* LaunchScreen.storyboard */,
 				779FD8C0289BA39E0093B90F /* Info.plist */,
@@ -225,11 +228,12 @@
 				7743A3F628AF83510089B473 /* SignUpViewController.swift in Sources */,
 				77606FB628C5F4FB00A53D91 /* Service.swift in Sources */,
 				7743A3DC28AE0DE70089B473 /* LoginViewController.swift in Sources */,
-				779FD8B7289BA39C0093B90F /* MainViewController.swift in Sources */,
 				7743A40028B0C6720089B473 /* ForgotPwViewController.swift in Sources */,
 				779FD8B3289BA39C0093B90F /* AppDelegate.swift in Sources */,
+				77606FBC28C7901C00A53D91 /* Request.swift in Sources */,
 				7743A3F428AF83450089B473 /* SignInViewController.swift in Sources */,
 				779FD8B5289BA39C0093B90F /* SceneDelegate.swift in Sources */,
+				77606FBE28C792D600A53D91 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

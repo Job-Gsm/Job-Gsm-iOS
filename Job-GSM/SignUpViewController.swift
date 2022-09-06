@@ -8,15 +8,30 @@
 import UIKit
 import SnapKit
 import Then
+import Moya
 
 class SignUpViewController: UIViewController {
+    
+    var essentialFieldList = [UITextField]()
+    
+    private let authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
+    var userData: SignupModel?
+    
 
     override func viewDidLoad() {
         view.backgroundColor = .white
         super.viewDidLoad()
         addView()
         setLayout()
+        essentialFieldList = [emailTextField,pwcheckTextField,pwTextField,nicknameTextField]
 
+    }
+    
+    func isFilled(_ textField: UITextField) -> Bool {
+        guard let text = textField.text, !text.isEmpty else {
+            return false
+        }
+        return true
     }
     let textLogo = UILabel().then {
         $0.text = "Job-GSM"
@@ -67,7 +82,7 @@ class SignUpViewController: UIViewController {
     }
     
     lazy var nicknameTextField = UITextField().then{
-        $0.placeholder = "nick name"
+        $0.placeholder = "nickname"
 //        $0.addTarget(self, action: #selector(), for: .editingChanged)
     }
     let nicknameUnderLine = UIView().then {
@@ -84,8 +99,28 @@ class SignUpViewController: UIViewController {
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .button
         $0.layer.cornerRadius = 15
+        $0.addTarget(self, action: #selector(signUpAction), for: .touchUpInside)
     }
     
+    @objc func signUpAction() {
+        for field in essentialFieldList {
+            if !isFilled(field) {
+                wrong()
+            }
+        }
+        signUp()
+    }
+    
+    func wrong() {
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.wrong!])
+        nicknameTextField.attributedPlaceholder = NSAttributedString(string: "nickname", attributes: [NSAttributedString.Key.foregroundColor : UIColor.wrong!])
+        pwTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.wrong!])
+        pwcheckTextField.attributedPlaceholder = NSAttributedString(string: "password check", attributes: [NSAttributedString.Key.foregroundColor : UIColor.wrong!])
+        emailUnderLine.backgroundColor = .wrong
+        nicknameUnderLine.backgroundColor = .wrong
+        pwcheckUnderLine.backgroundColor = .wrong
+        pwUnderLine.backgroundColor = .wrong
+    }
     private func addView() {
         [vector2,background,emailUnderLine,emailTextField,emailIcon,textLogo
         ,pwTextField,pwUnderLine,pwIcon,pwcheckUnderLine,pwcheckIcon,pwcheckTextField
@@ -177,4 +212,23 @@ class SignUpViewController: UIViewController {
         }
     }
     
+}
+
+extension SignUpViewController {
+    func signUp() {
+        let param = SignupRequest.init(self.emailTextField.text!, self.pwTextField.text!)
+        print(param)
+        authProvider.request(.signUp(param: param)) {response in
+            switch response {
+            case .success(let result):
+                do {
+                    self.userData = try result.map(SignupModel.self)
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
 }
