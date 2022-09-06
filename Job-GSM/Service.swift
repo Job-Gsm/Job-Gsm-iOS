@@ -3,6 +3,7 @@ import Foundation
 
 enum API {
     case signIn(param: SigninResponse)
+    case signUp(param: SignupResponse)
 }
 
 
@@ -13,14 +14,16 @@ extension API:TargetType{
     
     var path: String {
         switch self{
-        case .signIn:
+        case .signIn,
+            .signUp:
             return "signin"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .signIn:
+        case .signIn,
+            .signUp:
             return .post
         }
     }
@@ -28,6 +31,8 @@ extension API:TargetType{
     var task: Task {
         switch self {
         case .signIn(let param):
+            return .requestJSONEncodable(param)
+        case .signUp(let param):
             return .requestJSONEncodable(param)
         }
     }
