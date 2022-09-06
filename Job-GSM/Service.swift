@@ -2,8 +2,8 @@ import Moya
 import Foundation
 
 enum API {
-    case signIn(param: SigninResponse)
-    case signUp(param: SignupResponse)
+    case signIn
+    case signUp
 }
 
 
@@ -30,15 +30,15 @@ extension API:TargetType{
     
     var task: Task {
         switch self {
-        case .signIn(let param):
-            return .requestJSONEncodable(param)
-        case .signUp(let param):
-            return .requestJSONEncodable(param)
+        case .signIn:
+            return .requestParameters(parameters: [:], encoding: URLEncoding.queryString)
+        case .signUp:
+            return .requestParameters(parameters: [:], encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String : String]? {
-        return nil
+        return ["Content-type": "application/json"]
     }
     
     
