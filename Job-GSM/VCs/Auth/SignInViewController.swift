@@ -37,6 +37,12 @@ class SignInViewController: UIViewController {
         $0.image = UIImage(named: "Vector2.png")
     }
     
+    let wrongtext = UILabel().then{
+        $0.text = "아이디 혹은 비밀번호가 일치하지 않습니다"
+        $0.textColor = .white
+        $0.font = UIFont(name: "Kreon-Regular", size: 13)
+    }
+    
     let background = UIView().then{
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 10
@@ -53,7 +59,7 @@ class SignInViewController: UIViewController {
         $0.textColor = .black
         $0.font = UIFont(name: "Kreon-Regular", size: 20)
     }
-    
+
     lazy var emailTextField = UITextField().then{
         $0.placeholder = "ID"
 //        $0.addTarget(self, action: #selector(), for: .editingChanged)
@@ -117,21 +123,13 @@ class SignInViewController: UIViewController {
     }
     
     @objc func signInAction() {
-//        for field in essentialFieldList {
-//            if !isFilled(field) {
-//                wrong()
-//            }
-//        }
         signin()
     }
-//    func wrong() {
-//
-//    }
     
     private func addView() {
         [Vector2,background,textLogo,emailTextField,emailUnderLine,emailIcon,
          pwUnderLine,pwTextField,pwIcon,signInButton,forgotPwButton,orText
-        ,signUpButton].forEach {
+        ,signUpButton, wrongtext].forEach {
             view.addSubview($0)
         }
     }
@@ -150,6 +148,10 @@ class SignInViewController: UIViewController {
         textLogo.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.top.equalTo(view.snp.top).offset(236)
+        }
+        wrongtext.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(view.snp.top).offset(295)
         }
         emailTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -215,6 +217,7 @@ extension SignInViewController {
         pwTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
         emailUnderLine.backgroundColor = .wrong
         pwUnderLine.backgroundColor = .wrong
+        wrongtext.textColor = .wrong
     }
     func signin() {
         let param = SigninRequest.init(self.emailTextField.text!, self.pwTextField.text!)
