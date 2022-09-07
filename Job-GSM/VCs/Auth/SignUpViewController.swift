@@ -109,6 +109,7 @@ class SignUpViewController: UIViewController {
             }
         }
         signUp()
+        self.navigationController?.popViewController(animated: true)
     }
     
     func wrong() {
@@ -216,12 +217,14 @@ class SignUpViewController: UIViewController {
 
 extension SignUpViewController {
     func signUp() {
-        let param = SignupRequest.init(self.emailTextField.text!, self.pwTextField.text!)
+        let param = SignupRequest.init(self.emailTextField.text!, self.pwTextField.text!, self.nicknameTextField.text!)
         print(param)
         authProvider.request(.signUp(param: param)) {response in
             switch response {
             case .success(let result):
                 do {
+                    let str = try result.mapJSON()
+                    print(str)
                     self.userData = try result.map(SignupModel.self)
                 } catch(let err) {
                     print(err.localizedDescription)

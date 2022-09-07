@@ -11,8 +11,8 @@ struct SigninRequest: Codable {
     var email: String
     var password: String
     
-    init(_ id: String,_ password: String) {
-        self.email = id
+    init(_ email: String,_ password: String) {
+        self.email = email
         self.password = password
     }
 }
@@ -20,9 +20,11 @@ struct SigninRequest: Codable {
 struct SignupRequest: Codable {
     var email: String
     var password: String
+    var username: String
     
-    init(_ id: String,_ password: String) {
-        self.email = id
+    init(_ email: String,_ password: String,_ username: String) {
+        self.email = email
         self.password = password
+        self.username = username
     }
 }

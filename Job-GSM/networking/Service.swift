@@ -9,22 +9,21 @@ enum LoginServices {
 
 extension LoginServices: TargetType {
     public var baseURL: URL {
-        return URL(string: "http://10.53.68.236:8081/")!
+        return URL(string: "http://10.53.68.203:8081/")!
     }
     
     var path: String {
         switch self {
         case .signUp:
-            return "/user/register"
+            return "user/signup"
         case .signIn:
-            return "/user/login"
+            return "user/signin"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .signUp,
-             .signIn:
+        case .signUp,.signIn:
             return .post
         }
     }

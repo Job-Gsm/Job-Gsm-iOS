@@ -12,17 +12,12 @@ struct SignupModel: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: SignupResponse
 }
 struct SigninModel: Codable {
     let status: Int
     let success: Bool
     let message: String
     let data: SigninResponse
-}
-
-struct SignupResponse: Codable {
-    let email: String
 }
 
 struct SigninResponse: Codable {

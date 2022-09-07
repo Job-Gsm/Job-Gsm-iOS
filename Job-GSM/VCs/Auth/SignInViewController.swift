@@ -12,6 +12,8 @@ import Moya
 
 class SignInViewController: UIViewController {
     
+    var essentialFieldList = [UITextField]()
+    
     private let authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
     var userData: SigninModel?
     
@@ -21,7 +23,15 @@ class SignInViewController: UIViewController {
         view.backgroundColor = .white
         addView()
         setLayout()
+        essentialFieldList = [idTextField,pwTextField]
     }
+    
+    func isFilled(_ textField: UITextField) -> Bool {
+        guard let text = textField.text, !text.isEmpty else {
+            return false
+        }
+        return true
+    } 
     
     let Vector2 = UIImageView().then {
         $0.image = UIImage(named: "Vector2.png")
@@ -73,6 +83,7 @@ class SignInViewController: UIViewController {
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .button
         $0.layer.cornerRadius = 15
+        $0.addTarget(self, action: #selector(signInAction), for: .touchUpInside)
     }
     
     lazy var forgotPwButton = UIButton().then {
@@ -103,6 +114,18 @@ class SignInViewController: UIViewController {
         fvc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(fvc, animated: true)
     }
+    
+    @objc func signInAction() {
+//        for field in essentialFieldList {
+//            if !isFilled(field) {
+//                wrong()
+//            }
+//        }
+        signin()
+    }
+//    func wrong() {
+//
+//    }
     
     private func addView() {
         [Vector2,background,textLogo,idTextField,idUnderLine,idIcon,
@@ -176,9 +199,16 @@ class SignInViewController: UIViewController {
             $0.top.equalTo(orText.snp.bottom).offset(9)
         }
     }
+    func success() {
+        self.navigationController?.popViewController(animated: false)
+        //let mvc = MainViewcon
+    }
 }
 
 extension SignInViewController {
+    func faliure() {
+        
+    }
     func signin() {
         let param = SigninRequest.init(self.idTextField.text!, self.pwTextField.text!)
         print(param)
@@ -194,7 +224,7 @@ extension SignInViewController {
                 switch statusCode {
                 case 200..<300:
                     print("success")
-                    //self.success()
+                    self.success()
                 default:
                     print("failure")
                     //self.faliure()
