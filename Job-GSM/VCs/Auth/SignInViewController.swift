@@ -11,7 +11,7 @@ import Then
 import Moya
 
 class SignInViewController: UIViewController {
-    
+        
     var essentialFieldList = [UITextField]()
     
     private let authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
@@ -23,7 +23,7 @@ class SignInViewController: UIViewController {
         view.backgroundColor = .white
         addView()
         setLayout()
-        essentialFieldList = [idTextField,pwTextField]
+        essentialFieldList = [emailTextField,pwTextField]
     }
     
     func isFilled(_ textField: UITextField) -> Bool {
@@ -54,19 +54,20 @@ class SignInViewController: UIViewController {
         $0.font = UIFont(name: "Kreon-Regular", size: 20)
     }
     
-    lazy var idTextField = UITextField().then{
+    lazy var emailTextField = UITextField().then{
         $0.placeholder = "ID"
 //        $0.addTarget(self, action: #selector(), for: .editingChanged)
     }
-    let idUnderLine = UIView().then {
+    let emailUnderLine = UIView().then {
         $0.backgroundColor = .black
     }
-    let idIcon = UIImageView().then {
+    let emailIcon = UIImageView().then {
         $0.image = UIImage(named: "idIcon.png")
     }
     
     lazy var pwTextField = UITextField().then{
         $0.placeholder = "password"
+        $0.isSecureTextEntry = true
 //        $0.addTarget(self, action: #selector(), for: .editingChanged)
     }
     let pwUnderLine = UIView().then {
@@ -128,7 +129,7 @@ class SignInViewController: UIViewController {
 //    }
     
     private func addView() {
-        [Vector2,background,textLogo,idTextField,idUnderLine,idIcon,
+        [Vector2,background,textLogo,emailTextField,emailUnderLine,emailIcon,
          pwUnderLine,pwTextField,pwIcon,signInButton,forgotPwButton,orText
         ,signUpButton].forEach {
             view.addSubview($0)
@@ -150,34 +151,34 @@ class SignInViewController: UIViewController {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(view.snp.top).offset(236)
         }
-        idTextField.snp.makeConstraints {
+        emailTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(view.snp.top).offset(334)
             $0.leading.equalToSuperview().offset(99)
         }
-        idUnderLine.snp.makeConstraints{
+        emailUnderLine.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.top.equalTo(view.snp.top).offset(368)
             $0.leading.equalToSuperview().offset(70)
             $0.height.equalTo(1)
         }
-        idIcon.snp.makeConstraints{
+        emailIcon.snp.makeConstraints{
             $0.top.equalTo(view.snp.top).offset(334)
             $0.leading.equalToSuperview().offset(69)
         }
         pwTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(idUnderLine.snp.top).offset(53)
+            $0.top.equalTo(emailUnderLine.snp.top).offset(53)
             $0.leading.equalToSuperview().offset(99)
         }
         pwUnderLine.snp.makeConstraints{
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(idUnderLine.snp.top).offset(85)
+            $0.top.equalTo(emailUnderLine.snp.top).offset(85)
             $0.leading.equalToSuperview().offset(70)
             $0.height.equalTo(1)
         }
         pwIcon.snp.makeConstraints{
-            $0.top.equalTo(idUnderLine.snp.top).offset(54)
+            $0.top.equalTo(emailUnderLine.snp.top).offset(54)
             $0.leading.equalToSuperview().offset(69)
         }
         signInButton.snp.makeConstraints{
@@ -199,18 +200,24 @@ class SignInViewController: UIViewController {
             $0.top.equalTo(orText.snp.bottom).offset(9)
         }
     }
-    func success() {
-        self.navigationController?.popViewController(animated: false)
-        //let mvc = MainViewcon
-    }
+    
 }
 
 extension SignInViewController {
+    
+    func success() {
+        let mvc = MainViewController()
+        mvc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        present(mvc, animated: true, completion: nil)
+    }
     func faliure() {
-        
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
+        pwTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
+        emailUnderLine.backgroundColor = .wrong
+        pwUnderLine.backgroundColor = .wrong
     }
     func signin() {
-        let param = SigninRequest.init(self.idTextField.text!, self.pwTextField.text!)
+        let param = SigninRequest.init(self.emailTextField.text!, self.pwTextField.text!)
         print(param)
         authProvider.request(.signIn(param: param)) {response in
             switch response {
@@ -227,7 +234,7 @@ extension SignInViewController {
                     self.success()
                 default:
                     print("failure")
-                    //self.faliure()
+                    self.faliure()
                     
                 }
             case .failure(let err):

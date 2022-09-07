@@ -61,6 +61,7 @@ class SignUpViewController: UIViewController {
     
     lazy var pwTextField = UITextField().then{
         $0.placeholder = "password"
+        $0.isSecureTextEntry = true 
 //        $0.addTarget(self, action: #selector(), for: .editingChanged)
     }
     let pwUnderLine = UIView().then {
@@ -72,6 +73,7 @@ class SignUpViewController: UIViewController {
     
     lazy var pwcheckTextField = UITextField().then{
         $0.placeholder = "password check"
+        $0.isSecureTextEntry = true
 //        $0.addTarget(self, action: #selector(), for: .editingChanged)
     }
     let pwcheckUnderLine = UIView().then {
@@ -113,10 +115,10 @@ class SignUpViewController: UIViewController {
     }
     
     func wrong() {
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.wrong!])
-        nicknameTextField.attributedPlaceholder = NSAttributedString(string: "nickname", attributes: [NSAttributedString.Key.foregroundColor : UIColor.wrong!])
-        pwTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.wrong!])
-        pwcheckTextField.attributedPlaceholder = NSAttributedString(string: "password check", attributes: [NSAttributedString.Key.foregroundColor : UIColor.wrong!])
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
+        nicknameTextField.attributedPlaceholder = NSAttributedString(string: "nickname", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
+        pwTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
+        pwcheckTextField.attributedPlaceholder = NSAttributedString(string: "password check", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
         emailUnderLine.backgroundColor = .wrong
         nicknameUnderLine.backgroundColor = .wrong
         pwcheckUnderLine.backgroundColor = .wrong

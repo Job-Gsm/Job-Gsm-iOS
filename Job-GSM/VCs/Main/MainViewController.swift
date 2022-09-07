@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import SnapKit
+import Then
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .yellow
     }
 
 
@@ -22,4 +24,5 @@ extension UIColor {
     class var text: UIColor? {return UIColor(named: "text")}
     class var background: UIColor? {return UIColor(named: "background")}
     class var wrong: UIColor? {return UIColor(named: "wrong")}
+    class var placeholderwrong: UIColor? {return UIColor(named: "placeholderwrong")}
 }
