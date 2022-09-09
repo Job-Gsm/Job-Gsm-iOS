@@ -70,6 +70,7 @@ class ForgotPwViewController: UIViewController {
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .button
         $0.layer.cornerRadius = 8
+        $0.addTarget(self, action: #selector(certificationAction), for: .touchUpInside)
     }
     
     lazy var changeButton = UIButton().then{
@@ -96,6 +97,11 @@ class ForgotPwViewController: UIViewController {
     }
     @objc func backLogin() {
         self.navigationController?.popViewController(animated: true)
+    }
+    @objc func certificationAction() {
+        let popupViewController = AlertViewController(title: "인증번호를 입력하세요")
+          popupViewController.modalPresentationStyle = .overFullScreen
+          self.present(popupViewController, animated: false)
     }
     
     private func addView() {
