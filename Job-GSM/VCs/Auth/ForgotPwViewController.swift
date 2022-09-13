@@ -17,7 +17,13 @@ class ForgotPwViewController: UIViewController {
         view.backgroundColor = .white
         addView()
         setLayout()
-    }   
+    }
+    func isFilled(_ textField: UITextField) -> Bool {
+        guard let text = textField.text, !text.isEmpty else {
+            return false
+        }
+        return true
+    } 
 
     let vector2 = UIImageView().then {
         $0.image = UIImage(named: "Vector2.png")
@@ -70,7 +76,7 @@ class ForgotPwViewController: UIViewController {
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .button
         $0.layer.cornerRadius = 8
-        $0.addTarget(self, action: #selector(certificationAction), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
     }
     
     lazy var changeButton = UIButton().then{
@@ -98,10 +104,18 @@ class ForgotPwViewController: UIViewController {
     @objc func backLogin() {
         self.navigationController?.popViewController(animated: true)
     }
-    @objc func certificationAction() {
-        let popupViewController = AlertViewController(title: "인증번호를 입력하세요")
-          popupViewController.modalPresentationStyle = .overFullScreen
-          self.present(popupViewController, animated: false)
+    lazy var certificationTextField = UITextField()
+    
+    @objc func showAlert() {
+        let alert = UIAlertController(title: "인증번호를 입력하세요", message: nil, preferredStyle: .alert)
+        alert.addTextField { (certificationTextField) in
+            certificationTextField.placeholder = "인증번호를 입력하세요(5자리)"
+            certificationTextField.textAlignment = .center
+        }
+        let action = UIAlertAction(title: "인증하기", style: .default)
+        
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
     
     private func addView() {

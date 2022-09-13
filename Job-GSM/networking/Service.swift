@@ -9,7 +9,7 @@ enum LoginServices {
 
 extension LoginServices: TargetType {
     public var baseURL: URL {
-        return URL(string: "http://10.53.68.203:8081/")!
+        return URL(string: "http://10.53.68.205:8081/")!
     }
     
     var path: String {
