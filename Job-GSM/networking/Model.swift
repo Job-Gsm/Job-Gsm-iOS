@@ -20,6 +20,12 @@ struct SigninModel: Codable {
     let data: SigninResponse
 }
 
+struct CertificationModel: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+}
+
 struct SigninResponse: Codable {
     let email: String
 }

@@ -9,9 +9,14 @@ import UIKit
 import SnapKit
 import Then
 import DropDown
+import Moya
 
 class ForgotPwViewController: UIViewController {
 
+    
+    private let authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
+    var userData: CertificationModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -116,6 +121,7 @@ class ForgotPwViewController: UIViewController {
         
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
+        certification()
     }
     
     private func addView() {
@@ -208,6 +214,27 @@ extension CALayer {
         } else {
             let rect = bounds.insetBy(dx: -spread, dy: -spread)
             shadowPath = UIBezierPath(rect: rect).cgPath
+        }
+    }
+}
+
+extension ForgotPwViewController {
+    func certification() {
+        let param = CertificationRequest.init(self.certificationTextField.text!)
+        print(param)
+        authProvider.request(.certification(param: param)) {response in
+            switch response {
+            case .success(let result):
+                do {
+                    let str = try result.mapJSON()
+                    print(str)
+                    self.userData = try result.map(CertificationModel.self)
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
         }
     }
 }

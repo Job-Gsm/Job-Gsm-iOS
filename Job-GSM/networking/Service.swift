@@ -4,6 +4,7 @@ import Foundation
 enum LoginServices {
     case signUp(param: SignupRequest)
     case signIn(param: SigninRequest)
+    case certification(param: CertificationRequest)
 }
 
 
@@ -18,13 +19,16 @@ extension LoginServices: TargetType {
             return "user/signup"
         case .signIn:
             return "user/signin"
+        case .certification:
+            return "user/check/email"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .signUp,.signIn:
+        case .signUp,.signIn,.certification:
             return .post
+            
         }
     }
     
@@ -37,6 +41,8 @@ extension LoginServices: TargetType {
         case .signUp(let param):
             return .requestJSONEncodable(param)
         case .signIn(let param):
+            return .requestJSONEncodable(param)
+        case .certification(let param):
             return .requestJSONEncodable(param)
         }
     }

@@ -28,3 +28,11 @@ struct SignupRequest: Codable {
         self.username = username
     }
 }
+
+struct CertificationRequest: Codable {
+    var key:String
+    
+    init(_ key: String) {
+        self.key = key
+    }
+}
