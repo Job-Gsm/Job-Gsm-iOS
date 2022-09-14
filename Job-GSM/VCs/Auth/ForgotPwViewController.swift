@@ -30,6 +30,12 @@ class ForgotPwViewController: UIViewController {
         return true
     } 
 
+    let certificationWrong = UILabel().then {
+        $0.text = "유효하지않은 인증번호입니다."
+        $0.font = UIFont(name: "Kreon-Regular", size: 12)
+        $0.textColor = .wrong
+    }
+    
     let vector2 = UIImageView().then {
         $0.image = UIImage(named: "Vector2.png")
     }
@@ -125,7 +131,7 @@ class ForgotPwViewController: UIViewController {
     }
     
     private func addView() {
-        [vector2,background,forgotMyPw,enterEmailField,newPwField,againPwField,changeButton,certificationButton,backLoginButton,pwText].forEach {
+        [vector2,background,forgotMyPw,enterEmailField,newPwField,againPwField,changeButton,certificationButton,backLoginButton,pwText, certificationWrong].forEach {
             view.addSubview($0)
         }
     }
@@ -219,6 +225,16 @@ extension CALayer {
 }
 
 extension ForgotPwViewController {
+    func success() {
+//        print("성공")
+    }
+    
+    func faliure() {
+//        enterEmailField.layer.borderWidth = 1
+//        enterEmailField.layer.borderColor = UIColor.wrong!.cgColor
+//        enter
+    }
+    
     func certification() {
         let param = CertificationRequest.init(self.certificationTextField.text!)
         print(param)
@@ -231,6 +247,16 @@ extension ForgotPwViewController {
                     self.userData = try result.map(CertificationModel.self)
                 } catch(let err) {
                     print(err.localizedDescription)
+                }
+                let statusCode = result.statusCode
+                switch statusCode {
+                case 200..<300:
+                    print("success")
+                    self.success()
+                default:
+                    print("failure")
+                    self.faliure()
+                    
                 }
             case .failure(let err):
                 print(err.localizedDescription)
