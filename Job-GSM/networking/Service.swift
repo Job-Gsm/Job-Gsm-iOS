@@ -1,14 +1,14 @@
 import Moya
 import Foundation
 
-enum LoginServices {
+enum Services {
     case signUp(param: SignupRequest)
     case signIn(param: SigninRequest)
     case certification(param: CertificationRequest)
 }
 
 
-extension LoginServices: TargetType {
+extension Services: TargetType {
     public var baseURL: URL {
         return URL(string: "http://10.120.74.59:8081/")!
     }

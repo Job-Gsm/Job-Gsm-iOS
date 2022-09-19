@@ -13,7 +13,7 @@ import Moya
 class ForgotPwViewController: UIViewController {
 
     
-    private let authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
+    private let authProvider = MoyaProvider<Services>(plugins: [NetworkLoggerPlugin()])
     var userData: CertificationModel?
     
     override func viewDidLoad() {

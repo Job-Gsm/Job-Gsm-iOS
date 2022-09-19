@@ -14,7 +14,7 @@ class SignInViewController: UIViewController {
         
     var essentialFieldList = [UITextField]()
     
-    private let authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
+    private let authProvider = MoyaProvider<Services>(plugins: [NetworkLoggerPlugin()])
     var userData: SigninModel?
     
 

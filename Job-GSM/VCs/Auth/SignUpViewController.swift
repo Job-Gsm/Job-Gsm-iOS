@@ -14,8 +14,9 @@ class SignUpViewController: UIViewController {
     
     var essentialFieldList = [UITextField]()
     
-    private let authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
+    private let authProvider = MoyaProvider<Services>(plugins: [NetworkLoggerPlugin()])
     var userData: SignupModel?
+    var certificationData: CertificationModel?
     
 
     override func viewDidLoad() {
@@ -23,7 +24,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         addView()
         setLayout()
-        essentialFieldList = [emailTextField,pwcheckTextField,pwTextField,nicknameTextField]
+        essentialFieldList = [emailTextField,pwcheckTextField,pwTextField]
 
     }
     
@@ -49,51 +50,55 @@ class SignUpViewController: UIViewController {
     }
     
     lazy var emailTextField = UITextField().then{
-        $0.placeholder = "email"
-//        $0.addTarget(self, action: #selector(), for: .editingChanged)
+        $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
+        $0.placeholder = "email 주소 입력"
+        $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
+        $0.font = UIFont(name: "Kreon-Regular", size: 15)
+        $0.addLeftPadding()
+        $0.layer.cornerRadius = 10
+        $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 0, y: 2, blur: 0, spread: 0)
+        
     }
-    let emailUnderLine = UIView().then {
-        $0.backgroundColor = .black
-    }
-    let emailIcon = UIImageView().then {
-        $0.image = UIImage(named: "emailIcon.png")
-    }
-    
     lazy var pwTextField = UITextField().then{
+        $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
         $0.placeholder = "password"
-        $0.isSecureTextEntry = true 
-//        $0.addTarget(self, action: #selector(), for: .editingChanged)
+        $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
+        $0.font = UIFont(name: "Kreon-Regular", size: 15)
+        $0.addLeftPadding()
+        $0.layer.cornerRadius = 10
+        $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 0, y: 2, blur: 0, spread: 0)
     }
-    let pwUnderLine = UIView().then {
-        $0.backgroundColor = .black
-    }
-    let pwIcon = UIImageView().then {
-        $0.image = UIImage(named: "pwIcon.png")
-    }
-    
     lazy var pwcheckTextField = UITextField().then{
+        $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
         $0.placeholder = "password check"
-        $0.isSecureTextEntry = true
-//        $0.addTarget(self, action: #selector(), for: .editingChanged)
+        $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
+        $0.font = UIFont(name: "Kreon-Regular", size: 15)
+        $0.addLeftPadding()
+        $0.layer.cornerRadius = 10
+        $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 0, y: 2, blur: 0, spread: 0)
     }
-    let pwcheckUnderLine = UIView().then {
-        $0.backgroundColor = .black
+    lazy var certificationButton = UIButton().then{
+        let text = NSAttributedString(string: "인증")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 15)
+        $0.setTitleColor(UIColor.white, for: .normal)
+        $0.backgroundColor = .button
+        $0.layer.cornerRadius = 8
+        $0.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
     }
-    let pwcheckIcon = UIImageView().then {
-        $0.image = UIImage(named: "pwIcon.png")
+    @objc func showAlert() {
+        let alert = UIAlertController(title: "인증번호를 입력하세요", message: nil, preferredStyle: .alert)
+        alert.addTextField { (certificationTextField) in
+            certificationTextField.placeholder = "인증번호를 입력하세요(5자리)"
+            certificationTextField.textAlignment = .center
+        }
+        let action = UIAlertAction(title: "인증하기", style: .default) { _ in
+            self.certification()
+        }
+        
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
-    
-    lazy var nicknameTextField = UITextField().then{
-        $0.placeholder = "nickname"
-//        $0.addTarget(self, action: #selector(), for: .editingChanged)
-    }
-    let nicknameUnderLine = UIView().then {
-        $0.backgroundColor = .black
-    }
-    let nicknameIcon = UIImageView().then {
-        $0.image = UIImage(named: "idIcon.png")
-    }
-    
     lazy var signUpButton = UIButton().then {
         let text = NSAttributedString(string: "가입")
         $0.setAttributedTitle(text, for: .normal)
@@ -113,21 +118,15 @@ class SignUpViewController: UIViewController {
         signUp()
         self.navigationController?.popViewController(animated: true)
     }
+    lazy var certificationTextField = UITextField()
     
     func wrong() {
         emailTextField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
-        nicknameTextField.attributedPlaceholder = NSAttributedString(string: "nickname", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
         pwTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
         pwcheckTextField.attributedPlaceholder = NSAttributedString(string: "password check", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
-        emailUnderLine.backgroundColor = .wrong
-        nicknameUnderLine.backgroundColor = .wrong
-        pwcheckUnderLine.backgroundColor = .wrong
-        pwUnderLine.backgroundColor = .wrong
     }
     private func addView() {
-        [vector2,background,emailUnderLine,emailTextField,emailIcon,textLogo
-        ,pwTextField,pwUnderLine,pwIcon,pwcheckUnderLine,pwcheckIcon,pwcheckTextField
-        ,nicknameUnderLine,nicknameIcon,nicknameTextField,signUpButton].forEach {
+        [vector2,background,emailTextField,textLogo,pwTextField,pwcheckTextField,signUpButton].forEach {
             view.addSubview($0)
         }
     }
@@ -152,64 +151,19 @@ class SignUpViewController: UIViewController {
             $0.top.equalTo(view.snp.top).offset(269)
             $0.leading.equalToSuperview().offset(110)
         }
-        emailUnderLine.snp.makeConstraints{
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.snp.top).offset(300)
-            $0.leading.equalToSuperview().offset(76)
-            $0.height.equalTo(1)
-        }
-        emailIcon.snp.makeConstraints{
-            $0.top.equalTo(view.snp.top).offset(272)
-            $0.leading.equalToSuperview().offset(78)
-        }
         pwTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(emailUnderLine.snp.top).offset(21)
+            $0.top.equalTo(emailTextField.snp.bottom).offset(8)
             $0.leading.equalToSuperview().offset(110)
-        }
-        pwUnderLine.snp.makeConstraints{
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(emailUnderLine.snp.top).offset(50)
-            $0.leading.equalToSuperview().offset(76)
-            $0.height.equalTo(1)
-        }
-        pwIcon.snp.makeConstraints{
-            $0.top.equalTo(emailUnderLine.snp.top).offset(22)
-            $0.leading.equalToSuperview().offset(78)
         }
         pwcheckTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(pwUnderLine.snp.top).offset(18)
+            $0.top.equalTo(pwTextField.snp.top).offset(8)
             $0.leading.equalToSuperview().offset(110)
-        }
-        pwcheckUnderLine.snp.makeConstraints{
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(pwUnderLine.snp.top).offset(50)
-            $0.leading.equalToSuperview().offset(76)
-            $0.height.equalTo(1)
-        }
-        pwcheckIcon.snp.makeConstraints{
-            $0.top.equalTo(pwUnderLine.snp.top).offset(20)
-            $0.leading.equalToSuperview().offset(78)
-        }
-        nicknameTextField.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(pwcheckUnderLine.snp.top).offset(20)
-            $0.leading.equalToSuperview().offset(110)
-        }
-        nicknameUnderLine.snp.makeConstraints{
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(pwcheckUnderLine.snp.top).offset(50)
-            $0.leading.equalToSuperview().offset(76)
-            $0.height.equalTo(1)
-        }
-        nicknameIcon.snp.makeConstraints{
-            $0.top.equalTo(pwcheckUnderLine.snp.top).offset(21)
-            $0.leading.equalToSuperview().offset(78)
         }
         signUpButton.snp.makeConstraints{
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(nicknameUnderLine.snp.bottom).offset(80)
+            $0.top.equalTo(pwcheckTextField.snp.bottom).offset(66)
             $0.height.equalTo(50)
             $0.width.equalTo(200)
         }
@@ -218,8 +172,35 @@ class SignUpViewController: UIViewController {
 }
 
 extension SignUpViewController {
+    func certification() {
+        let param = CertificationRequest.init(self.certificationTextField.text!)
+        print(param)
+        authProvider.request(.certification(param: param)) {response in
+            switch response {
+            case .success(let result):
+                do {
+                    let str = try result.mapJSON()
+                    print(str)
+                    self.certificationData = try result.map(CertificationModel.self)
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+                let statusCode = result.statusCode
+                switch statusCode {
+                case 200..<300:
+                    print("success")
+                    //self.success()
+                default:
+                    print("failure")
+                    //self.faliure()
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
     func signUp() {
-        let param = SignupRequest.init(self.emailTextField.text!, self.pwTextField.text!, self.nicknameTextField.text!)
+        let param = SignupRequest.init(self.emailTextField.text!, self.pwTextField.text!)
         print(param)
         authProvider.request(.signUp(param: param)) {response in
             switch response {
