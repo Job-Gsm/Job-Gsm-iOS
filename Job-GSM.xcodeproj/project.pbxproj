@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7743A3DC28AE0DE70089B473 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743A3DB28AE0DE70089B473 /* LoginViewController.swift */; };
-		7743A3DF28AE0E130089B473 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7743A3DE28AE0E130089B473 /* SnapKit */; };
-		7743A3E228AE0E260089B473 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7743A3E128AE0E260089B473 /* Then */; };
 		7743A3EE28AE17A70089B473 /* Kreon-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3E928AE17A70089B473 /* Kreon-Bold.ttf */; };
 		7743A3EF28AE17A70089B473 /* Kreon-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3EA28AE17A70089B473 /* Kreon-Light.ttf */; };
 		7743A3F028AE17A70089B473 /* Kreon-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7743A3EB28AE17A70089B473 /* Kreon-Medium.ttf */; };
@@ -18,12 +16,13 @@
 		7743A3F428AF83450089B473 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743A3F328AF83450089B473 /* SignInViewController.swift */; };
 		7743A3F628AF83510089B473 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743A3F528AF83510089B473 /* SignUpViewController.swift */; };
 		7743A40028B0C6720089B473 /* ForgotPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743A3FF28B0C6720089B473 /* ForgotPwViewController.swift */; };
-		7743A40628B27A330089B473 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 7743A40528B27A330089B473 /* DropDown */; };
-		77606FB428C4E10E00A53D91 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 77606FB328C4E10E00A53D91 /* Moya */; };
 		77606FB628C5F4FB00A53D91 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77606FB528C5F4FB00A53D91 /* Service.swift */; };
 		77606FBA28C76B8000A53D91 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77606FB928C76B8000A53D91 /* Model.swift */; };
 		77606FBC28C7901C00A53D91 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77606FBB28C7901C00A53D91 /* Request.swift */; };
 		77606FBE28C792D600A53D91 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77606FBD28C792D600A53D91 /* MainViewController.swift */; };
+		776F8B6E28D8464D0070520E /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 776F8B6D28D8464D0070520E /* Then */; };
+		776F8B7128D846B30070520E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 776F8B7028D846B30070520E /* Moya */; };
+		776F8B7428D846CE0070520E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 776F8B7328D846CE0070520E /* SnapKit */; };
 		779FD8B3289BA39C0093B90F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B2289BA39C0093B90F /* AppDelegate.swift */; };
 		779FD8B5289BA39C0093B90F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B4289BA39C0093B90F /* SceneDelegate.swift */; };
 		779FD8BC289BA39E0093B90F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 779FD8BB289BA39E0093B90F /* Assets.xcassets */; };
@@ -57,10 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7743A3DF28AE0E130089B473 /* SnapKit in Frameworks */,
-				7743A40628B27A330089B473 /* DropDown in Frameworks */,
-				77606FB428C4E10E00A53D91 /* Moya in Frameworks */,
-				7743A3E228AE0E260089B473 /* Then in Frameworks */,
+				776F8B7428D846CE0070520E /* SnapKit in Frameworks */,
+				776F8B7128D846B30070520E /* Moya in Frameworks */,
+				776F8B6E28D8464D0070520E /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,10 +163,9 @@
 			);
 			name = "Job-GSM";
 			packageProductDependencies = (
-				7743A3DE28AE0E130089B473 /* SnapKit */,
-				7743A3E128AE0E260089B473 /* Then */,
-				7743A40528B27A330089B473 /* DropDown */,
-				77606FB328C4E10E00A53D91 /* Moya */,
+				776F8B6D28D8464D0070520E /* Then */,
+				776F8B7028D846B30070520E /* Moya */,
+				776F8B7328D846CE0070520E /* SnapKit */,
 			);
 			productName = "Job-GSM";
 			productReference = 779FD8AF289BA39C0093B90F /* Job-GSM.app */;
@@ -199,11 +196,9 @@
 			);
 			mainGroup = 779FD8A6289BA39C0093B90F;
 			packageReferences = (
-				7743A3DD28AE0E130089B473 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				7743A3E028AE0E260089B473 /* XCRemoteSwiftPackageReference "Then" */,
-				7743A40328B27A110089B473 /* XCRemoteSwiftPackageReference "DropDown" */,
-				7743A40428B27A330089B473 /* XCRemoteSwiftPackageReference "DropDown" */,
-				77606FB228C4E10E00A53D91 /* XCRemoteSwiftPackageReference "Moya" */,
+				776F8B6C28D8464D0070520E /* XCRemoteSwiftPackageReference "Then" */,
+				776F8B6F28D846B30070520E /* XCRemoteSwiftPackageReference "Moya" */,
+				776F8B7228D846CE0070520E /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 779FD8B0289BA39C0093B90F /* Products */;
 			projectDirPath = "";
@@ -453,15 +448,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7743A3DD28AE0E130089B473 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				branch = develop;
-				kind = branch;
-			};
-		};
-		7743A3E028AE0E260089B473 /* XCRemoteSwiftPackageReference "Then" */ = {
+		776F8B6C28D8464D0070520E /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
 			requirement = {
@@ -469,23 +456,7 @@
 				kind = branch;
 			};
 		};
-		7743A40328B27A110089B473 /* XCRemoteSwiftPackageReference "DropDown" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AssistoLab/DropDown";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.5;
-			};
-		};
-		7743A40428B27A330089B473 /* XCRemoteSwiftPackageReference "DropDown" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AssistoLab/DropDown";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		77606FB228C4E10E00A53D91 /* XCRemoteSwiftPackageReference "Moya" */ = {
+		776F8B6F28D846B30070520E /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
 			requirement = {
@@ -493,28 +464,31 @@
 				kind = branch;
 			};
 		};
+		776F8B7228D846CE0070520E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7743A3DE28AE0E130089B473 /* SnapKit */ = {
+		776F8B6D28D8464D0070520E /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7743A3DD28AE0E130089B473 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		7743A3E128AE0E260089B473 /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7743A3E028AE0E260089B473 /* XCRemoteSwiftPackageReference "Then" */;
+			package = 776F8B6C28D8464D0070520E /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
 		};
-		7743A40528B27A330089B473 /* DropDown */ = {
+		776F8B7028D846B30070520E /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7743A40428B27A330089B473 /* XCRemoteSwiftPackageReference "DropDown" */;
-			productName = DropDown;
-		};
-		77606FB328C4E10E00A53D91 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 77606FB228C4E10E00A53D91 /* XCRemoteSwiftPackageReference "Moya" */;
+			package = 776F8B6F28D846B30070520E /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		776F8B7328D846CE0070520E /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 776F8B7228D846CE0070520E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

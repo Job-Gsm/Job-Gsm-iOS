@@ -8,7 +8,6 @@
 import UIKit
 import SnapKit
 import Then
-import DropDown
 import Moya
 
 class ForgotPwViewController: UIViewController {
@@ -123,11 +122,12 @@ class ForgotPwViewController: UIViewController {
             certificationTextField.placeholder = "인증번호를 입력하세요(5자리)"
             certificationTextField.textAlignment = .center
         }
-        let action = UIAlertAction(title: "인증하기", style: .default)
+        let action = UIAlertAction(title: "인증하기", style: .default) { _ in
+            self.certification()
+        }
         
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
-        certification()
     }
     
     private func addView() {
