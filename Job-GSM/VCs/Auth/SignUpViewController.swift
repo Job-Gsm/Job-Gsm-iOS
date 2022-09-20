@@ -13,7 +13,7 @@ import Moya
 class SignUpViewController: UIViewController {
     
     var essentialFieldList = [UITextField]()
-    
+    private let bounds = UIScreen.main.bounds
     private let authProvider = MoyaProvider<Services>(plugins: [NetworkLoggerPlugin()])
     var userData: SignupModel?
     var certificationData: CertificationModel?
@@ -35,9 +35,9 @@ class SignUpViewController: UIViewController {
         return true
     }
     let textLogo = UILabel().then {
-        $0.text = "Job-GSM"
+        $0.text = "회원가입"
         $0.textColor = .black
-        $0.font = UIFont(name: "Kreon-Regular", size: 40)
+        $0.font = UIFont(name: "Kreon-Regular", size: 25)
     }
     let vector2 = UIImageView().then {
         $0.image = UIImage(named: "Vector2.png")
@@ -100,7 +100,7 @@ class SignUpViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     lazy var signUpButton = UIButton().then {
-        let text = NSAttributedString(string: "가입")
+        let text = NSAttributedString(string: "다음")
         $0.setAttributedTitle(text, for: .normal)
         $0.titleLabel?.font = UIFont(name: "Kreon-Regular", size: 20)
         $0.setTitleColor(UIColor.white, for: .normal)
@@ -126,7 +126,7 @@ class SignUpViewController: UIViewController {
         pwcheckTextField.attributedPlaceholder = NSAttributedString(string: "password check", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
     }
     private func addView() {
-        [vector2,background,emailTextField,textLogo,pwTextField,pwcheckTextField,signUpButton].forEach {
+        [vector2,background,emailTextField,textLogo,pwTextField,pwcheckTextField,signUpButton,certificationButton].forEach {
             view.addSubview($0)
         }
     }
@@ -137,29 +137,39 @@ class SignUpViewController: UIViewController {
             $0.bottom.equalTo(view.snp.bottom).offset(0)
         }
         background.snp.makeConstraints{
-            $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview()
-            $0.height.equalTo(574)
-            $0.width.equalTo(318)
+            $0.center.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(36)
+            $0.height.equalTo((bounds.width - 72) * 1.27)
         }
         textLogo.snp.makeConstraints{
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.snp.top).offset(171)
+            $0.top.equalTo(background.snp.top).offset(30)
         }
         emailTextField.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.snp.top).offset(269)
-            $0.leading.equalToSuperview().offset(110)
+            $0.leading.equalTo(background.snp.leading).offset(22)
+            $0.trailing.equalTo(view.snp.trailing).inset((bounds.width) / 3.12)
+            $0.top.equalTo(textLogo.snp.bottom).offset((bounds.height) / 16)
+            $0.height.equalTo((bounds.height) / 19.181)
+        }
+        certificationButton.snp.makeConstraints{
+            $0.top.equalTo(textLogo.snp.bottom).offset((bounds.height) / 16)
+            $0.height.equalTo((bounds.height) / 19.181)
+            $0.leading.equalTo(emailTextField.snp.trailing).offset(14)
+            $0.trailing.equalTo(background.snp.trailing).offset(-21)
         }
         pwTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(emailTextField.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().offset(110)
+            $0.leading.equalTo(background.snp.leading).offset(22)
+            $0.trailing.equalTo(background.snp.trailing).offset(-21)
+            $0.top.equalTo(emailTextField.snp.bottom).offset(10)
+            $0.height.equalTo((bounds.height) / 19.181)
         }
         pwcheckTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(pwTextField.snp.top).offset(8)
-            $0.leading.equalToSuperview().offset(110)
+            $0.leading.equalTo(background.snp.leading).offset(22)
+            $0.trailing.equalTo(background.snp.trailing).offset(-21)
+            $0.top.equalTo(pwTextField.snp.bottom).offset(10)
+            $0.height.equalTo((bounds.height) / 19.181)
         }
         signUpButton.snp.makeConstraints{
             $0.centerX.equalToSuperview()

@@ -15,6 +15,7 @@ class ForgotPwViewController: UIViewController {
     
     private let authProvider = MoyaProvider<Services>(plugins: [NetworkLoggerPlugin()])
     var userData: CertificationModel?
+    private let bounds = UIScreen.main.bounds
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,12 +141,12 @@ class ForgotPwViewController: UIViewController {
         vector2.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(view.snp.bottom).offset(0)
+            $0.leading.trailing.equalToSuperview().inset(0)
         }
         background.snp.makeConstraints{
-            $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview()
-            $0.height.equalTo(404)
-            $0.width.equalTo(318)
+            $0.center.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(36)
+            $0.height.equalTo((bounds.width - 72) * 1.27)
         }
         forgotMyPw.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -155,7 +156,7 @@ class ForgotPwViewController: UIViewController {
             $0.top.equalTo(forgotMyPw.snp.bottom).offset(31)
             $0.height.equalTo(44)
             $0.leading.equalToSuperview().offset(58)
-            $0.trailing.equalToSuperview().offset(-119)
+            $0.trailing.equalToSuperview().offset(-125)
         }
         certificationButton.snp.makeConstraints {
             $0.top.equalTo(forgotMyPw.snp.bottom).offset(31)
