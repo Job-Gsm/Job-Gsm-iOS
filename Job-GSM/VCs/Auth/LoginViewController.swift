@@ -10,26 +10,21 @@ import SnapKit
 import Then
 
 class LoginViewController: UIViewController {
+
     private let bounds = UIScreen.main.bounds
 
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { self.view.endEditing(true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .background
+//        view.backgroundColor = .background
         addView()
         setLayout()
     }
     
-    let backgroundLogo = UIImageView().then {
-        $0.image = UIImage(named: "backgroundLogo.png")
-    }
-    
-    let Vector1 = UIImageView().then {
-        $0.image = UIImage(named: "Vector1.png")
-    }
-    
-    let Logo = UIImageView().then {
-        $0.image = UIImage(named: "Job-Logo.png")
+    let background = UIImageView().then {
+        $0.image = UIImage(named: "background.png")
+        $0.contentMode = .scaleToFill
     }
     
     lazy var signUpButton = UIButton().then{
@@ -64,37 +59,26 @@ class LoginViewController: UIViewController {
     }
     
     private func addView() {
-        [backgroundLogo,Vector1,Logo,signUpButton,signInButton].forEach {
+        [background,signUpButton,signInButton].forEach {
             view.addSubview($0)
         }
     }
     
     private func setLayout() {
-        backgroundLogo.snp.makeConstraints{
-            $0.top.equalTo(view.snp.top).offset(70)
-            $0.centerX.equalToSuperview()
-        }
-        Vector1.snp.makeConstraints{
-            $0.bottom.equalTo(view.snp.bottom).offset(0)
-            $0.centerX.equalToSuperview()
-            $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview()
-        }
-        Logo.snp.makeConstraints {
-            $0.top.equalTo(view.snp.top).offset(203)
-            $0.centerX.equalToSuperview()
+        background.snp.makeConstraints{
+            $0.edges.equalToSuperview()
         }
         signUpButton.snp.makeConstraints{
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(Logo.snp.bottom).offset(28)
-            $0.size.equalTo(bounds.height * 0.05)
-            $0.trailing.equalToSuperview().offset(-89)
+            $0.top.equalTo(view.snp.top).offset((bounds.height) / 2.7)
+            $0.height.equalTo((bounds.height) / 16.08)
+            $0.leading.equalToSuperview().offset((bounds.width) / 6.40)
         }
         signInButton.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.top.equalTo(signUpButton.snp.bottom).offset(19)
-            $0.size.equalTo(bounds.height * 0.05)
-            $0.trailing.equalToSuperview().offset(-89)
+            $0.height.equalTo((bounds.height) / 16.08)
+            $0.leading.equalToSuperview().offset((bounds.width) / 6.40)
         }
     }
     

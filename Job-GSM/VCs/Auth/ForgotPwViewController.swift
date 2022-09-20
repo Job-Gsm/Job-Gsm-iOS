@@ -11,8 +11,8 @@ import Then
 import Moya
 
 class ForgotPwViewController: UIViewController {
-
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { self.view.endEditing(true)
+    }
     private let authProvider = MoyaProvider<Services>(plugins: [NetworkLoggerPlugin()])
     var userData: CertificationModel?
     private let bounds = UIScreen.main.bounds

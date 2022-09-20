@@ -12,6 +12,8 @@ import Moya
 
 class SignInViewController: UIViewController {
         
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { self.view.endEditing(true)
+    }
     var essentialFieldList = [UITextField]()
     
     private let authProvider = MoyaProvider<Services>(plugins: [NetworkLoggerPlugin()])
