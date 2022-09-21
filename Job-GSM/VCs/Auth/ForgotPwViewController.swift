@@ -23,12 +23,13 @@ class ForgotPwViewController: UIViewController {
         addView()
         setLayout()
     }
+        
     func isFilled(_ textField: UITextField) -> Bool {
         guard let text = textField.text, !text.isEmpty else {
             return false
         }
         return true
-    } 
+    }
 
     let certificationWrong = UILabel().then {
         $0.text = "유효하지않은 인증번호입니다."
@@ -87,7 +88,7 @@ class ForgotPwViewController: UIViewController {
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .button
         $0.layer.cornerRadius = 8
-        $0.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(showModal), for: .touchUpInside)
     }
     
     lazy var changeButton = UIButton().then{
@@ -117,18 +118,22 @@ class ForgotPwViewController: UIViewController {
     }
     lazy var certificationTextField = UITextField()
     
-    @objc func showAlert() {
-        let alert = UIAlertController(title: "인증번호를 입력하세요", message: nil, preferredStyle: .alert)
-        alert.addTextField { (certificationTextField) in
-            certificationTextField.placeholder = "인증번호를 입력하세요(5자리)"
-            certificationTextField.textAlignment = .center
-        }
-        let action = UIAlertAction(title: "인증하기", style: .default) { _ in
-            self.certification()
-        }
-        
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+//    @objc func showAlert() {
+//        let alert = UIAlertController(title: "인증번호를 입력하세요", message: nil, preferredStyle: .alert)
+//        alert.addTextField { (certificationTextField) in
+//            certificationTextField.placeholder = "인증번호를 입력하세요(5자리)"
+//            certificationTextField.textAlignment = .center
+//        }
+//        let action = UIAlertAction(title: "인증하기", style: .default) { _ in
+//            self.certification()
+//        }
+//
+//        alert.addAction(action)
+//        self.present(alert, animated: true, completion: nil)
+//    }
+    @objc func showModal() {
+        let MVC = ModalViewController()
+        present(MVC, animated: true, completion: nil)
     }
     
     private func addView() {
@@ -202,28 +207,6 @@ extension UITextField {
   }
 }
 
-extension CALayer {
-    func applySketchShadow(
-        color: UIColor,
-        alpha: Float,
-        x: CGFloat,
-        y: CGFloat,
-        blur: CGFloat,
-        spread: CGFloat
-    ) {
-        masksToBounds = false
-        shadowColor = color.cgColor
-        shadowOpacity = alpha
-        shadowOffset = CGSize(width: x, height: y)
-        shadowRadius = blur / UIScreen.main.scale
-        if spread == 0 {
-            shadowPath = nil
-        } else {
-            let rect = bounds.insetBy(dx: -spread, dy: -spread)
-            shadowPath = UIBezierPath(rect: rect).cgPath
-        }
-    }
-}
 
 extension ForgotPwViewController {
     func success() {
