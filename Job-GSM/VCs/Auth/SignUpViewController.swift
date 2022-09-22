@@ -52,7 +52,8 @@ class SignUpViewController: UIViewController {
     
     lazy var emailTextField = UITextField().then{
         $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
-        $0.placeholder = "email 주소 입력"
+        $0.attributedPlaceholder = NSAttributedString(string: "이메일을 입력해주세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholder!.cgColor])
+        $0.textColor = .black
         $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
         $0.font = UIFont(name: "Kreon-Regular", size: 15)
         $0.addLeftPadding()
@@ -62,7 +63,8 @@ class SignUpViewController: UIViewController {
     }
     lazy var pwTextField = UITextField().then{
         $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
-        $0.placeholder = "password"
+        $0.attributedPlaceholder = NSAttributedString(string: "비밀번호를 입력해주세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholder!.cgColor])
+        $0.textColor = .black
         $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
         $0.font = UIFont(name: "Kreon-Regular", size: 15)
         $0.addLeftPadding()
@@ -71,7 +73,8 @@ class SignUpViewController: UIViewController {
     }
     lazy var pwcheckTextField = UITextField().then{
         $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
-        $0.placeholder = "password check"
+        $0.attributedPlaceholder = NSAttributedString(string: "비밀번호를 다시 입력해주세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholder!.cgColor])
+        $0.textColor = .black
         $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
         $0.font = UIFont(name: "Kreon-Regular", size: 15)
         $0.addLeftPadding()
@@ -134,7 +137,7 @@ class SignUpViewController: UIViewController {
     
     private func setLayout() {
         vector2.snp.makeConstraints{
-            $0.centerX.equalToSuperview()
+            $0.trailing.leading.equalToSuperview().offset(0)
             $0.bottom.equalTo(view.snp.bottom).offset(0)
         }
         background.snp.makeConstraints{

@@ -14,7 +14,7 @@ class ForgotPwViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { self.view.endEditing(true)
     }
     private let authProvider = MoyaProvider<Services>(plugins: [NetworkLoggerPlugin()])
-    var userData: CertificationModel?
+    var userData: SendEmailModel?
     private let bounds = UIScreen.main.bounds
     
     override func viewDidLoad() {
@@ -55,8 +55,8 @@ class ForgotPwViewController: UIViewController {
     
     lazy var enterEmailField = UITextField().then{
         $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
-        $0.placeholder = "email 주소를 입력해주세요"
-        $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
+        $0.attributedPlaceholder = NSAttributedString(string: "email 주소를 입력해주세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholder!.cgColor])
+        $0.textColor = .black
         $0.font = UIFont(name: "Kreon-Regular", size: 15)
         $0.addLeftPadding()
         $0.layer.cornerRadius = 10
@@ -64,8 +64,8 @@ class ForgotPwViewController: UIViewController {
     }
     lazy var newPwField = UITextField().then{
         $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
-        $0.placeholder = "새 비밀번호"
-        $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
+        $0.attributedPlaceholder = NSAttributedString(string: "새 비밀번호를 입력해주세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholder!.cgColor])
+        $0.textColor = .black
         $0.font = UIFont(name: "Kreon-Regular", size: 15)
         $0.addLeftPadding()
         $0.layer.cornerRadius = 10
@@ -73,7 +73,8 @@ class ForgotPwViewController: UIViewController {
     }
     lazy var againPwField = UITextField().then{
         $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
-        $0.placeholder = "비밀번호 확인"
+        $0.attributedPlaceholder = NSAttributedString(string: "새 비밀번호를 다시 입력해주세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholder!.cgColor])
+        $0.textColor = .black
         $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
         $0.font = UIFont(name: "Kreon-Regular", size: 15)
         $0.addLeftPadding()
@@ -117,8 +118,7 @@ class ForgotPwViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @objc func showModal() {
-        let MVC = ModalViewController()
-        present(MVC, animated: true, completion: nil)
+        sendEmail()
     }
     
     private func addView() {
@@ -191,3 +191,47 @@ extension UITextField {
     self.leftViewMode = ViewMode.always
   }
 }
+
+extension ForgotPwViewController {
+    func success() {
+        let MVC = ModalViewController()
+        present(MVC, animated: true, completion: nil)
+    }
+    
+    func faliure() {
+        enterEmailField.layer.borderWidth = 2
+        enterEmailField.layer.borderColor = UIColor.wrong?.cgColor
+        enterEmailField.text = ""
+        enterEmailField.attributedPlaceholder = NSAttributedString(string: "이메일을 다시 확인해주세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
+    }
+    
+    func sendEmail() {
+        let param = SendEmailRequest.init(self.enterEmailField.text!)
+        print(param)
+        authProvider.request(.sendEmail(param: param)) {response in
+            switch response {
+            case .success(let result):
+                do {
+                    let str = try result.mapJSON()
+                    print(str)
+                    self.userData = try result.map(SendEmailModel.self)
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+                let statusCode = result.statusCode
+                switch statusCode {
+                case 200..<300:
+                    print("success")
+                    self.success()
+                default:
+                    print("failure")
+                    self.faliure()
+                    
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+}
+

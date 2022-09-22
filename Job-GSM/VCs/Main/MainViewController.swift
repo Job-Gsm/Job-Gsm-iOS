@@ -25,6 +25,7 @@ extension UIColor {
     class var background: UIColor? {return UIColor(named: "background")}
     class var wrong: UIColor? {return UIColor(named: "wrong")}
     class var placeholderwrong: UIColor? {return UIColor(named: "placeholderwrong")}
+    class var placeholder: UIColor? {return UIColor(named: "placeholder")}
 }
 
 extension CALayer {

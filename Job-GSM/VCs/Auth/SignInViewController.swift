@@ -63,8 +63,8 @@ class SignInViewController: UIViewController {
     }
 
     lazy var emailTextField = UITextField().then{
-        $0.placeholder = "ID"
-//        $0.addTarget(self, action: #selector(), for: .editingChanged)
+        $0.attributedPlaceholder = NSAttributedString(string: "이메일을 입력해주세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholder!.cgColor])
+        $0.textColor = .black
     }
     let emailUnderLine = UIView().then {
         $0.backgroundColor = .black
@@ -74,7 +74,8 @@ class SignInViewController: UIViewController {
     }
     
     lazy var pwTextField = UITextField().then{
-        $0.placeholder = "password"
+        $0.attributedPlaceholder = NSAttributedString(string: "비밀번호를 입력해주세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholder!.cgColor])
+        $0.textColor = .black
         $0.isSecureTextEntry = true
 //        $0.addTarget(self, action: #selector(), for: .editingChanged)
     }
@@ -138,7 +139,7 @@ class SignInViewController: UIViewController {
     
     private func setLayout() {
         Vector2.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().offset(0)
             $0.bottom.equalTo(view.snp.bottom).offset(0)
         }
         background.snp.makeConstraints {
