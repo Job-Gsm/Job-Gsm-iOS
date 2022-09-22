@@ -116,21 +116,6 @@ class ForgotPwViewController: UIViewController {
     @objc func backLogin() {
         self.navigationController?.popViewController(animated: true)
     }
-    lazy var certificationTextField = UITextField()
-    
-//    @objc func showAlert() {
-//        let alert = UIAlertController(title: "인증번호를 입력하세요", message: nil, preferredStyle: .alert)
-//        alert.addTextField { (certificationTextField) in
-//            certificationTextField.placeholder = "인증번호를 입력하세요(5자리)"
-//            certificationTextField.textAlignment = .center
-//        }
-//        let action = UIAlertAction(title: "인증하기", style: .default) { _ in
-//            self.certification()
-//        }
-//
-//        alert.addAction(action)
-//        self.present(alert, animated: true, completion: nil)
-//    }
     @objc func showModal() {
         let MVC = ModalViewController()
         present(MVC, animated: true, completion: nil)
@@ -155,41 +140,41 @@ class ForgotPwViewController: UIViewController {
         }
         forgotMyPw.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.snp.top).offset(259)
+            $0.top.equalTo(background.snp.top).offset(30)
         }
         enterEmailField.snp.makeConstraints{
             $0.top.equalTo(forgotMyPw.snp.bottom).offset(31)
-            $0.height.equalTo(44)
-            $0.leading.equalToSuperview().offset(58)
-            $0.trailing.equalToSuperview().offset(-125)
+            $0.height.equalTo((bounds.height) / 19.18)
+            $0.leading.equalToSuperview().offset((bounds.width) / 6.72)
+            $0.trailing.equalToSuperview().inset((bounds.width) / 3.12)
         }
         certificationButton.snp.makeConstraints {
             $0.top.equalTo(forgotMyPw.snp.bottom).offset(31)
-            $0.height.equalTo(44)
+            $0.height.equalTo((bounds.height) / 19.18)
             $0.leading.equalTo(enterEmailField.snp.trailing).offset(7)
-            $0.trailing.equalToSuperview().offset(-58)
+            $0.trailing.equalToSuperview().inset((bounds.width) / 6.72)
         }
         newPwField.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.top.equalTo(enterEmailField.snp.bottom).offset(14)
-            $0.height.equalTo(44)
-            $0.leading.equalToSuperview().offset(58)
+            $0.height.equalTo((bounds.height) / 19.18)
+            $0.leading.equalToSuperview().offset((bounds.width) / 6.72)
         }
         againPwField.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.top.equalTo(newPwField.snp.bottom).offset(14)
-            $0.height.equalTo(44)
-            $0.leading.equalToSuperview().offset(58)
+            $0.height.equalTo((bounds.height) / 19.18)
+            $0.leading.equalToSuperview().offset((bounds.width) / 6.72)
         }
         changeButton.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.top.equalTo(againPwField.snp.bottom).offset(10)
-            $0.height.equalTo(50)
-            $0.leading.equalToSuperview().offset(58)
+            $0.height.equalTo((bounds.height) / 16.88)
+            $0.leading.equalToSuperview().offset((bounds.width) / 6.72)
         }
         backLoginButton.snp.makeConstraints{
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(changeButton.snp.bottom).offset(38)
+            $0.top.equalTo(changeButton.snp.bottom).offset((bounds.height) / 22.21)
         }
         pwText.snp.makeConstraints{
             $0.centerX.equalToSuperview()
