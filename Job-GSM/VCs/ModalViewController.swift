@@ -12,6 +12,9 @@ import Then
 import DPOTPView
 
 class ModalViewController: UIViewController {
+    
+    private let authProvider = MoyaProvider<Services>(plugins: [NetworkLoggerPlugin()])
+    var userData: CertificationModel?
 
     private let bounds = UIScreen.main.bounds
     override func viewDidLoad() {
@@ -19,6 +22,12 @@ class ModalViewController: UIViewController {
         
         addView()
         setLayout()
+    }
+    
+    let wrongtext = UILabel().then {
+        $0.text = "인증번호를 확인해주세요"
+        $0.font = UIFont(name: "Kreon-Regular", size: 15)
+        $0.textColor = .white
     }
     
     let backView = UIView().then{
@@ -50,7 +59,7 @@ class ModalViewController: UIViewController {
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .button
         $0.layer.cornerRadius = 10
-//        $0.addTarget(self, action: #selector(backLogin), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(certificationAction), for: .touchUpInside)
     }
     lazy var backButton = UIButton().then {
         let text = NSAttributedString(string: "취소")
@@ -63,8 +72,12 @@ class ModalViewController: UIViewController {
         $0.layer.cornerRadius = 10
     }
     
+    @objc func certificationAction() {
+        certification()
+    }
+    
     private func addView() {
-        [backView, text, textfield, certificationButton, backButton].forEach {
+        [backView, text, textfield, certificationButton, backButton, wrongtext].forEach {
             view.addSubview($0)
         }
     }
@@ -94,6 +107,52 @@ class ModalViewController: UIViewController {
             $0.trailing.equalToSuperview().inset((bounds.width) / 1.95)
             $0.leading.equalTo(view.snp.leading).offset((bounds.width) / 19.5)
             $0.height.equalTo((bounds.height) / 16.08)
+        }
+        wrongtext.snp.makeConstraints {
+            $0.top.equalTo(textfield.snp.bottom).offset((bounds.height) / 21.1)
+            $0.centerX.equalToSuperview()
+        }
+    }
+}
+
+extension ModalViewController {
+    func success() {
+        self.navigationController?.popViewController(animated: true)
+        print("성공")
+    }
+    
+    func faliure() {
+        textfield.layer.borderWidth = 1
+        textfield.layer.borderColor = UIColor.wrong!.cgColor
+        wrongtext.textColor = .wrong
+    }
+    
+    func certification() {
+        let param = CertificationRequest.init(self.textfield.text!)
+        print(param)
+        authProvider.request(.certification(param: param)) {response in
+            switch response {
+            case .success(let result):
+                do {
+                    let str = try result.mapJSON()
+                    print(str)
+                    self.userData = try result.map(CertificationModel.self)
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+                let statusCode = result.statusCode
+                switch statusCode {
+                case 200..<300:
+                    print("success")
+                    self.success()
+                default:
+                    print("failure")
+                    self.faliure()
+                    
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
         }
     }
 }
