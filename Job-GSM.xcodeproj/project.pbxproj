@@ -16,8 +16,6 @@
 		7743A3F428AF83450089B473 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743A3F328AF83450089B473 /* SignInViewController.swift */; };
 		7743A3F628AF83510089B473 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743A3F528AF83510089B473 /* SignUpViewController.swift */; };
 		7743A40028B0C6720089B473 /* ForgotPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743A3FF28B0C6720089B473 /* ForgotPwViewController.swift */; };
-		774AE8D828DAD64900BAF284 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774AE8D728DAD64900BAF284 /* ModalViewController.swift */; };
-		774AE8DC28DB21DB00BAF284 /* DPOTPView in Frameworks */ = {isa = PBXBuildFile; productRef = 774AE8DB28DB21DB00BAF284 /* DPOTPView */; };
 		77606FB628C5F4FB00A53D91 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77606FB528C5F4FB00A53D91 /* Service.swift */; };
 		77606FBA28C76B8000A53D91 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77606FB928C76B8000A53D91 /* Model.swift */; };
 		77606FBC28C7901C00A53D91 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77606FBB28C7901C00A53D91 /* Request.swift */; };
@@ -41,7 +39,6 @@
 		7743A3F328AF83450089B473 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		7743A3F528AF83510089B473 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7743A3FF28B0C6720089B473 /* ForgotPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPwViewController.swift; sourceTree = "<group>"; };
-		774AE8D728DAD64900BAF284 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		77606FB528C5F4FB00A53D91 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		77606FB928C76B8000A53D91 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		77606FBB28C7901C00A53D91 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -62,7 +59,6 @@
 				776F8B7428D846CE0070520E /* SnapKit in Frameworks */,
 				776F8B7128D846B30070520E /* Moya in Frameworks */,
 				776F8B6E28D8464D0070520E /* Then in Frameworks */,
-				774AE8DC28DB21DB00BAF284 /* DPOTPView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +70,6 @@
 			children = (
 				77606FC228C7988900A53D91 /* Main */,
 				77606FC128C7984E00A53D91 /* Auth */,
-				774AE8D728DAD64900BAF284 /* ModalViewController.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -171,7 +166,6 @@
 				776F8B6D28D8464D0070520E /* Then */,
 				776F8B7028D846B30070520E /* Moya */,
 				776F8B7328D846CE0070520E /* SnapKit */,
-				774AE8DB28DB21DB00BAF284 /* DPOTPView */,
 			);
 			productName = "Job-GSM";
 			productReference = 779FD8AF289BA39C0093B90F /* Job-GSM.app */;
@@ -205,7 +199,6 @@
 				776F8B6C28D8464D0070520E /* XCRemoteSwiftPackageReference "Then" */,
 				776F8B6F28D846B30070520E /* XCRemoteSwiftPackageReference "Moya" */,
 				776F8B7228D846CE0070520E /* XCRemoteSwiftPackageReference "SnapKit" */,
-				774AE8DA28DB21DB00BAF284 /* XCRemoteSwiftPackageReference "DPOTPView" */,
 			);
 			productRefGroup = 779FD8B0289BA39C0093B90F /* Products */;
 			projectDirPath = "";
@@ -241,7 +234,6 @@
 				77606FBA28C76B8000A53D91 /* Model.swift in Sources */,
 				7743A3F628AF83510089B473 /* SignUpViewController.swift in Sources */,
 				77606FB628C5F4FB00A53D91 /* Service.swift in Sources */,
-				774AE8D828DAD64900BAF284 /* ModalViewController.swift in Sources */,
 				7743A3DC28AE0DE70089B473 /* LoginViewController.swift in Sources */,
 				7743A40028B0C6720089B473 /* ForgotPwViewController.swift in Sources */,
 				779FD8B3289BA39C0093B90F /* AppDelegate.swift in Sources */,
@@ -456,14 +448,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		774AE8DA28DB21DB00BAF284 /* XCRemoteSwiftPackageReference "DPOTPView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Datt1994/DPOTPView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		776F8B6C28D8464D0070520E /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
@@ -491,11 +475,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		774AE8DB28DB21DB00BAF284 /* DPOTPView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 774AE8DA28DB21DB00BAF284 /* XCRemoteSwiftPackageReference "DPOTPView" */;
-			productName = DPOTPView;
-		};
 		776F8B6D28D8464D0070520E /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 776F8B6C28D8464D0070520E /* XCRemoteSwiftPackageReference "Then" */;
