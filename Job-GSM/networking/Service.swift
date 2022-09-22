@@ -6,6 +6,7 @@ enum Services {
     case signIn(param: SigninRequest)
     case certification(param: CertificationRequest)
     case sendEmail(param: SendEmailRequest)
+    case forgotPW(param: ForgotRequest)
 }
 
 
@@ -24,12 +25,14 @@ extension Services: TargetType {
             return "user/check/email"
         case .sendEmail:
             return "user/send/email"
+        case .forgotPW:
+            return "user/change/password"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .signUp,.signIn,.certification,.sendEmail:
+        case .signUp,.signIn,.certification,.sendEmail,.forgotPW:
             return .post
             
         }
@@ -48,6 +51,8 @@ extension Services: TargetType {
         case .certification(let param):
             return .requestJSONEncodable(param)
         case .sendEmail(let param):
+            return .requestJSONEncodable(param)
+        case .forgotPW(let param):
             return .requestJSONEncodable(param)
         }
     }

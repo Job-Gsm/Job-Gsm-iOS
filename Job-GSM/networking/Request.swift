@@ -42,3 +42,13 @@ struct SendEmailRequest: Codable {
         self.email = email
     }
 }
+
+struct ForgotRequest: Codable {
+    var email: String
+    var newPassword: String
+    
+    init(_ email: String,_ newPassword: String) {
+        self.email = email
+        self.newPassword = newPassword
+    }
+}

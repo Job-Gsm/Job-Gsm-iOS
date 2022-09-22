@@ -32,6 +32,12 @@ struct SendEmailModel: Codable {
     let message: String
 }
 
+struct ForgotPWModel: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+}
+
 struct SigninResponse: Codable {
     let email: String
 }
