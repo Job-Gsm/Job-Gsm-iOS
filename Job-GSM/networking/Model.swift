@@ -26,6 +26,12 @@ struct CertificationModel: Codable {
     let message: String
 }
 
+struct SendEmailModel: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+}
+
 struct SigninResponse: Codable {
     let email: String
 }

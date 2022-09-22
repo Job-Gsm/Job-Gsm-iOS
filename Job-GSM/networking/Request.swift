@@ -34,3 +34,11 @@ struct CertificationRequest: Codable {
         self.key = key
     }
 }
+
+struct SendEmailRequest: Codable {
+    var email:String
+    
+    init(_ email: String) {
+        self.email = email
+    }
+}

@@ -5,12 +5,13 @@ enum Services {
     case signUp(param: SignupRequest)
     case signIn(param: SigninRequest)
     case certification(param: CertificationRequest)
+    case sendEmail(param: SendEmailRequest)
 }
 
 
 extension Services: TargetType {
     public var baseURL: URL {
-        return URL(string: "http://10.120.74.59/")!
+        return URL(string: "http://192.168.0.93/")!
     }
     
     var path: String {
@@ -21,12 +22,14 @@ extension Services: TargetType {
             return "user/signin"
         case .certification:
             return "user/check/email"
+        case .sendEmail:
+            return "user/send/email"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .signUp,.signIn,.certification:
+        case .signUp,.signIn,.certification,.sendEmail:
             return .post
             
         }
@@ -43,6 +46,8 @@ extension Services: TargetType {
         case .signIn(let param):
             return .requestJSONEncodable(param)
         case .certification(let param):
+            return .requestJSONEncodable(param)
+        case .sendEmail(let param):
             return .requestJSONEncodable(param)
         }
     }
