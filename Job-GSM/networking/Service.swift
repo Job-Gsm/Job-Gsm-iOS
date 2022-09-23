@@ -12,7 +12,7 @@ enum Services {
 
 extension Services: TargetType {
     public var baseURL: URL {
-        return URL(string: "http://192.168.0.93/")!
+        return URL(string: "http://10.120.74.59:8081/")!
     }
     
     var path: String {

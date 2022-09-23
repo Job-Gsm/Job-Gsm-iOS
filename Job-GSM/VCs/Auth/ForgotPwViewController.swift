@@ -17,6 +17,7 @@ class ForgotPwViewController: UIViewController {
     var userData: SendEmailModel?
     var newUserData: ForgotPWModel?
     private let bounds = UIScreen.main.bounds
+//    var situation: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class ForgotPwViewController: UIViewController {
         }
         return true
     }
-
+    
     let certificationWrong = UILabel().then {
         $0.text = "유효하지않은 인증번호입니다."
         $0.font = UIFont(name: "Kreon-Regular", size: 12)
@@ -121,6 +122,7 @@ class ForgotPwViewController: UIViewController {
     @objc func showModal() {
         sendEmail()
     }
+    
     
     private func addView() {
         [vector2,background,forgotMyPw,enterEmailField,newPwField,againPwField,changeButton,certificationButton,backLoginButton,pwText, certificationWrong].forEach {

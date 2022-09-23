@@ -15,6 +15,7 @@ class ModalViewController: UIViewController {
     
     private let authProvider = MoyaProvider<Services>(plugins: [NetworkLoggerPlugin()])
     var userData: CertificationModel?
+    var limitTime: Int = 300
 
     private let bounds = UIScreen.main.bounds
     override func viewDidLoad() {
@@ -22,8 +23,47 @@ class ModalViewController: UIViewController {
         
         addView()
         setLayout()
+        getSetTime()
     }
     
+    let timeLabel = UILabel()
+    
+    @objc func getSetTime() {
+        secToTime(sec: limitTime)
+        limitTime -= 1
+    }
+    
+    func secToTime(sec: Int) {
+        let minute = (sec % 3600) / 60
+        let second = (sec % 3600) % 60
+        
+        if second < 10 {
+            timeLabel.text = String(minute) + ":" + "0"+String(second)
+        } else {
+            timeLabel.text = String(minute) + ":"+String(second)
+        }
+        if limitTime != 0 {
+            perform(#selector(getSetTime), with: nil, afterDelay: 1.0)
+        }
+        else if limitTime == 0 {
+            timeLabel.isHidden = true
+            showAlert()
+        }
+    }
+    
+    func popVC() {
+        self.presentingViewController?.dismiss(animated: true)
+        
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "제한시간이 초과되었습니다.", message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default) { _ in
+            self.popVC()
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
     let wrongtext = UILabel().then {
         $0.text = "인증번호를 확인해주세요"
         $0.font = UIFont(name: "Kreon-Regular", size: 15)
@@ -70,14 +110,19 @@ class ModalViewController: UIViewController {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.button!.cgColor
         $0.layer.cornerRadius = 10
+        $0.addTarget(self, action: #selector(backAction), for: .touchUpInside)
     }
     
     @objc func certificationAction() {
         certification()
     }
+    @objc func backAction() {
+        print("back")
+        popVC()
+    }
     
     private func addView() {
-        [backView, text, textfield, certificationButton, backButton, wrongtext].forEach {
+        [backView, text, textfield, certificationButton, backButton, wrongtext, timeLabel].forEach {
             view.addSubview($0)
         }
     }
@@ -112,12 +157,16 @@ class ModalViewController: UIViewController {
             $0.top.equalTo(textfield.snp.bottom).offset((bounds.height) / 21.1)
             $0.centerX.equalToSuperview()
         }
+        timeLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(textfield.snp.bottom).offset((bounds.height) / 19)
+        }
     }
 }
 
 extension ModalViewController {
     func success() {
-        self.navigationController?.popViewController(animated: true)
+        popVC()
         print("성공")
     }
     
