@@ -15,6 +15,7 @@ class ForgotPwViewController: UIViewController {
     }
     private let authProvider = MoyaProvider<Services>(plugins: [NetworkLoggerPlugin()])
     var userData: SendEmailModel?
+    var newUserData: ForgotPWModel?
     private let bounds = UIScreen.main.bounds
     
     override func viewDidLoad() {
@@ -215,6 +216,35 @@ extension ForgotPwViewController {
                     let str = try result.mapJSON()
                     print(str)
                     self.userData = try result.map(SendEmailModel.self)
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+                let statusCode = result.statusCode
+                switch statusCode {
+                case 200..<300:
+                    print("success")
+                    self.success()
+                default:
+                    print("failure")
+                    self.faliure()
+                    
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    func forgotPW() {
+        let param = ForgotRequest.init(self.enterEmailField.text!, self.newPwField.text!)
+        print(param)
+        authProvider.request(.forgotPW(param: param)) {response in
+            switch response {
+            case .success(let result):
+                do {
+                    let str = try result.mapJSON()
+                    print(str)
+                    self.newUserData = try result.map(ForgotPWModel.self)
                 } catch(let err) {
                     print(err.localizedDescription)
                 }
