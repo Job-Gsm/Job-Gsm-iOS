@@ -11,7 +11,7 @@ import Then
 import Moya
 
 class SignInViewController: UIViewController {
-        
+    private let bounds = UIScreen.main.bounds
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { self.view.endEditing(true)
     }
     var essentialFieldList = [UITextField]()
@@ -63,24 +63,29 @@ class SignInViewController: UIViewController {
     }
 
     lazy var emailTextField = UITextField().then{
-        $0.attributedPlaceholder = NSAttributedString(string: "이메일을 입력해주세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholder!.cgColor])
+        $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
+        $0.attributedPlaceholder = NSAttributedString(string: "ID", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholder!.cgColor])
         $0.textColor = .black
-    }
-    let emailUnderLine = UIView().then {
-        $0.backgroundColor = .black
+        $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
+        $0.font = UIFont(name: "Kreon-Regular", size: 15)
+        $0.addLeftPadding()
+        $0.layer.cornerRadius = 10
+        $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 0, y: 2, blur: 0, spread: 0)
     }
     let emailIcon = UIImageView().then {
         $0.image = UIImage(named: "idIcon.png")
     }
     
     lazy var pwTextField = UITextField().then{
-        $0.attributedPlaceholder = NSAttributedString(string: "비밀번호를 입력해주세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholder!.cgColor])
+        $0.backgroundColor = UIColor(red: 0.92156862745, green: 0.92156862745, blue: 0.92156862745, alpha: 0.7)
+        $0.attributedPlaceholder = NSAttributedString(string: "비밀번호를 다시 입력해주세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholder!.cgColor])
         $0.textColor = .black
+        $0.textColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.4)
+        $0.font = UIFont(name: "Kreon-Regular", size: 15)
+        $0.addLeftPadding()
+        $0.layer.cornerRadius = 10
+        $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 0, y: 2, blur: 0, spread: 0)
         $0.isSecureTextEntry = true
-//        $0.addTarget(self, action: #selector(), for: .editingChanged)
-    }
-    let pwUnderLine = UIView().then {
-        $0.backgroundColor = .black
     }
     let pwIcon = UIImageView().then {
         $0.image = UIImage(named: "pwIcon.png")
@@ -130,9 +135,9 @@ class SignInViewController: UIViewController {
     }
     
     private func addView() {
-        [Vector2,background,textLogo,emailTextField,emailUnderLine,emailIcon,
-         pwUnderLine,pwTextField,pwIcon,signInButton,forgotPwButton,orText
-        ,signUpButton, wrongtext].forEach {
+        [Vector2,background,textLogo,wrongtext,emailIcon,emailTextField,
+         pwIcon,pwTextField,forgotPwButton,signInButton,orText
+        ,signUpButton].forEach {
             view.addSubview($0)
         }
     }
@@ -145,56 +150,44 @@ class SignInViewController: UIViewController {
         background.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview()
-            $0.height.equalTo(574)
-            $0.width.equalTo(318)
+            $0.height.equalTo((bounds.height) / 1.47)
+            $0.width.equalTo((bounds.width) / 1.22)
         }
         textLogo.snp.makeConstraints{
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.snp.top).offset(236)
+            $0.top.equalTo(background.snp.top).offset((bounds.height) / 8.35)
         }
         wrongtext.snp.makeConstraints{
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.snp.top).offset(295)
+            $0.top.equalTo(textLogo.snp.top).offset((bounds.height) / 14.3)
+        }
+        emailIcon.snp.makeConstraints{
+            $0.top.equalTo(textLogo.snp.top).offset((bounds.height) / 14.80)
+            $0.leading.equalTo(background.snp.leading).offset(12)
         }
         emailTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.snp.top).offset(334)
-            $0.leading.equalToSuperview().offset(99)
+            $0.top.equalTo(textLogo.snp.top).offset((bounds.height) / 17.95)
+            $0.leading.equalTo(emailIcon.snp.trailing).offset(7)
         }
-        emailUnderLine.snp.makeConstraints{
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.snp.top).offset(368)
-            $0.leading.equalToSuperview().offset(70)
-            $0.height.equalTo(1)
-        }
-        emailIcon.snp.makeConstraints{
-            $0.top.equalTo(view.snp.top).offset(334)
-            $0.leading.equalToSuperview().offset(69)
+        pwIcon.snp.makeConstraints{
+            $0.top.equalTo(emailTextField.snp.bottom).offset(36)
+            $0.leading.equalTo(background.snp.leading).offset(12)
         }
         pwTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(emailUnderLine.snp.top).offset(53)
-            $0.leading.equalToSuperview().offset(99)
-        }
-        pwUnderLine.snp.makeConstraints{
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(emailUnderLine.snp.top).offset(85)
-            $0.leading.equalToSuperview().offset(70)
-            $0.height.equalTo(1)
-        }
-        pwIcon.snp.makeConstraints{
-            $0.top.equalTo(emailUnderLine.snp.top).offset(54)
-            $0.leading.equalToSuperview().offset(69)
-        }
-        signInButton.snp.makeConstraints{
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(pwUnderLine.snp.top).offset(81)
-            $0.height.equalTo(50)
-            $0.width.equalTo(200)
+            $0.top.equalTo(emailTextField.snp.bottom).offset(26)
+            $0.leading.equalTo(pwIcon.snp.leading).offset(7)
         }
         forgotPwButton.snp.makeConstraints{
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(pwUnderLine.snp.top).offset(29)
+            $0.top.equalTo(pwTextField.snp.top).offset(37)
+        }
+        signInButton.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(forgotPwButton.snp.bottom).offset(34)
+            $0.height.equalTo((bounds.height) / 16.88)
+            $0.width.equalTo((bounds.width) / 1.95)
         }
         orText.snp.makeConstraints{
             $0.centerX.equalToSuperview()
@@ -219,8 +212,6 @@ extension SignInViewController {
     func faliure() {
         emailTextField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
         pwTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderwrong!])
-        emailUnderLine.backgroundColor = .wrong
-        pwUnderLine.backgroundColor = .wrong
         wrongtext.textColor = .wrong
     }
     func signin() {
