@@ -29,6 +29,7 @@
 		779FD8B5289BA39C0093B90F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FD8B4289BA39C0093B90F /* SceneDelegate.swift */; };
 		779FD8BC289BA39E0093B90F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 779FD8BB289BA39E0093B90F /* Assets.xcassets */; };
 		779FD8BF289BA39E0093B90F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 779FD8BD289BA39E0093B90F /* LaunchScreen.storyboard */; };
+		77F59A0D290A97D70096FA36 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F59A0C290A97D70096FA36 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		779FD8BB289BA39E0093B90F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		779FD8BE289BA39E0093B90F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		779FD8C0289BA39E0093B90F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77F59A0C290A97D70096FA36 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		779FD8B1289BA39C0093B90F /* Job-GSM */ = {
 			isa = PBXGroup;
 			children = (
+				77F59A0B290A97BD0096FA36 /* base */,
 				77606FC428C7990700A53D91 /* networking */,
 				77606FC028C797E100A53D91 /* font */,
 				77606FBF28C797C700A53D91 /* VCs */,
@@ -149,6 +152,14 @@
 				779FD8C0289BA39E0093B90F /* Info.plist */,
 			);
 			path = "Job-GSM";
+			sourceTree = "<group>";
+		};
+		77F59A0B290A97BD0096FA36 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				77F59A0C290A97D70096FA36 /* BaseViewController.swift */,
+			);
+			path = base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +254,7 @@
 				77606FB628C5F4FB00A53D91 /* Service.swift in Sources */,
 				774AE8D828DAD64900BAF284 /* ModalViewController.swift in Sources */,
 				7743A3DC28AE0DE70089B473 /* LoginViewController.swift in Sources */,
+				77F59A0D290A97D70096FA36 /* BaseViewController.swift in Sources */,
 				7743A40028B0C6720089B473 /* ForgotPwViewController.swift in Sources */,
 				779FD8B3289BA39C0093B90F /* AppDelegate.swift in Sources */,
 				77606FBC28C7901C00A53D91 /* Request.swift in Sources */,
