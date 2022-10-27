@@ -10,7 +10,7 @@ import SnapKit
 import Then
 import Moya
 
-class SignInViewController: UIViewController {
+class SignInViewController: BaseViewController {
     private let bounds = UIScreen.main.bounds
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { self.view.endEditing(true)
     }
@@ -23,8 +23,6 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        addView()
-        setLayout()
         essentialFieldList = [emailTextField,pwTextField]
     }
     
@@ -136,14 +134,14 @@ class SignInViewController: UIViewController {
         self.navigationController?.pushViewController(suvc, animated: true)
     }
     
-    private func addView() {
+    override func addView() {
         [Vector2,background,textLogo,wrongtext,emailIcon,emailTextField,
          pwIcon,pwTextField,forgotPwButton,signInButton,orText,signUpButton].forEach {
             view.addSubview($0)
         }
     }
     
-    private func setLayout() {
+    override func setLayout() {
         Vector2.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().offset(0)
             $0.bottom.equalTo(view.snp.bottom).offset(0)

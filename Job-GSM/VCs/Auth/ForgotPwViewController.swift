@@ -10,22 +10,15 @@ import SnapKit
 import Then
 import Moya
 
-class ForgotPwViewController: UIViewController {
+class ForgotPwViewController: BaseViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { self.view.endEditing(true)
     }
     private let authProvider = MoyaProvider<Services>(plugins: [NetworkLoggerPlugin()])
     var userData: SendEmailModel?
     var newUserData: ForgotPWModel?
     private let bounds = UIScreen.main.bounds
-//    var situation: Bool = true
+
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        addView()
-        setLayout()
-    }
-        
     func isFilled(_ textField: UITextField) -> Bool {
         guard let text = textField.text, !text.isEmpty else {
             return false
@@ -124,13 +117,13 @@ class ForgotPwViewController: UIViewController {
     }
     
     
-    private func addView() {
+    override func addView() {
         [vector2,background,forgotMyPw,enterEmailField,newPwField,againPwField,changeButton,certificationButton,backLoginButton,pwText, certificationWrong].forEach {
             view.addSubview($0)
         }
     }
     
-    private func setLayout() {
+    override func setLayout() {
         vector2.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(view.snp.bottom).offset(0)

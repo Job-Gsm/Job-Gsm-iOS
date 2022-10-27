@@ -11,7 +11,15 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        addView()
+        setLayout()
+        
+    }
+    func addView() {
+    }
+    
+    func setLayout() {
+        
     }
 
 }

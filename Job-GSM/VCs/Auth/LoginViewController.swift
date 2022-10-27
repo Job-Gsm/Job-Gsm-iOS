@@ -9,15 +9,10 @@ import UIKit
 import SnapKit
 import Then
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     private let bounds = UIScreen.main.bounds
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { self.view.endEditing(true)
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        addView()
-        setLayout()
     }
     
     let background = UIImageView().then {
@@ -56,13 +51,13 @@ class LoginViewController: UIViewController {
         self.navigationController?.pushViewController(suvc, animated: true)
     }
     
-    private func addView() {
+    override func addView() {
         [background,signUpButton,signInButton].forEach {
             view.addSubview($0)
         }
     }
     
-    private func setLayout() {
+    override func setLayout() {
         background.snp.makeConstraints{
             $0.edges.equalToSuperview()
         }
